@@ -1,0 +1,81 @@
+table Studienanfänger
+	lineageTag: 7155935c-53bf-455d-aca4-538f9f18f2f2
+	sourceLineageTag: [Genesis].[studienanfaengerhochschule]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 2aa132b4-3562-46aa-a401-005d002be5a0
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wintersemester
+		dataType: string
+		lineageTag: e803aa4e-f952-494d-9286-b3df066eb179
+		sourceLineageTag: Wintersemester
+		summarizeBy: none
+		sourceColumn: Wintersemester
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hochschule_Code
+		dataType: string
+		isHidden
+		lineageTag: c27cb6ca-5c6f-4648-8af8-a10d2bb286f4
+		sourceLineageTag: Hochschule_Code
+		summarizeBy: none
+		sourceColumn: Hochschule_Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nationalitaet
+		dataType: string
+		isHidden
+		lineageTag: b94f82de-9931-4d83-8695-1faa68dab63a
+		sourceLineageTag: Nationalitaet
+		summarizeBy: none
+		sourceColumn: Nationalitaet
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: 905a7be5-5bfe-439b-a1b7-b8dd3321a369
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		isHidden
+		lineageTag: 984742cd-0919-4bd6-9373-21f6e6c308e9
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition studienanfaengerhochschule = entity
+		mode: directLake
+		source
+			entityName: studienanfaengerhochschule
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

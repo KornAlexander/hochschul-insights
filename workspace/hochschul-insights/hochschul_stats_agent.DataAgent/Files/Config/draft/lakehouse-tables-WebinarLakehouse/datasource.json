@@ -1,0 +1,768 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "__LAKEHOUSE_ID__",
+  "workspaceId": "__WORKSPACE_ID__",
+  "dataSourceInstructions": null,
+  "displayName": "WebinarLakehouse",
+  "type": "lakehouse_tables",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "e335255b-9a0e-48ab-bf94-3782c856f5df",
+      "is_selected": false,
+      "display_name": "Schemas",
+      "type": "schema_grouping",
+      "description": null,
+      "children": [
+        {
+          "id": "c573b683-980e-4402-abcc-4d7475027e1f",
+          "is_selected": false,
+          "display_name": "Genesis",
+          "type": "lakehouse_tables.schema",
+          "description": null,
+          "children": [
+            {
+              "id": "5e6143cd-48f2-4371-ac75-082b7f3b8e0e",
+              "is_selected": false,
+              "display_name": "Tables",
+              "type": "table_grouping",
+              "description": null,
+              "children": [
+                {
+                  "id": "9ed3ac9c-ca1c-4ecb-a8aa-0f7b0953d76f",
+                  "is_selected": false,
+                  "display_name": "bundesland",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "7e850e6c-8945-460b-9b97-869c52bdf81a",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "0440a173-3fb6-43a7-bf93-9fe445aac715",
+                  "is_selected": false,
+                  "display_name": "hochschulart",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "b180bd47-c983-4717-9356-a314565b439c",
+                      "is_selected": true,
+                      "display_name": "Hochschulart",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "a8d54a5b-5e16-4684-a3df-410990e666de",
+                  "is_selected": false,
+                  "display_name": "faechergruppe",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "76b2fc2a-c817-4123-93d1-f9644f043e08",
+                      "is_selected": true,
+                      "display_name": "Faechergruppe",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "bd6a837d-051e-4264-bb9d-df37383b34a2",
+                  "is_selected": false,
+                  "display_name": "nationalitaet",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "a0ea38b9-afe0-4b70-9068-3a3cd55072c7",
+                      "is_selected": true,
+                      "display_name": "Nationalitaet",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "3be52e5a-7f55-45c1-9a1c-b3710ac7be0d",
+                  "is_selected": false,
+                  "display_name": "geschlecht",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "70b58478-e5f9-4566-bd64-158748fa4013",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "0e0ff368-354f-465b-a3c0-66df27939c2a",
+                  "is_selected": false,
+                  "display_name": "drittmittel",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "d16c1bd4-ecb0-499a-af87-02666c502a63",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "9d918700-0dae-4843-806f-c131dbebe3fc",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "3fa22490-bc25-45b2-94ce-46695100561c",
+                      "is_selected": true,
+                      "display_name": "Hochschulart",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "3027813c-e5de-4cf9-ad3c-dee13bffa6c8",
+                      "is_selected": true,
+                      "display_name": "Faechergruppe",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "c0e0d6ca-6384-4c14-84b8-76e2c6df65a2",
+                      "is_selected": true,
+                      "display_name": "Wert_EUR",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "aedd0457-72d7-4df9-8690-8b6154db8981",
+                  "is_selected": false,
+                  "display_name": "wisspersonalfach",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "74eb1f36-0dca-47be-befe-c96be41aa263",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "d777c6b7-05e9-4b08-9c4e-1af3a0b6708e",
+                      "is_selected": true,
+                      "display_name": "LehrForschungsbereich",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "0086af8b-872e-40ab-8c05-3f9638ad3a2a",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "8a854aa6-26b6-4f47-94d3-f33f65f5d05f",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "a7094fcd-b892-4ad5-a103-53066e2bd727",
+                  "is_selected": false,
+                  "display_name": "einnahmen",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "6a9416f9-0933-4fe9-abbc-c55bcbc2c6c4",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "ebb95142-fdcc-4703-a346-a688ce316041",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "6fa8d095-599b-439c-bb07-974e4e2859ff",
+                      "is_selected": true,
+                      "display_name": "Hochschulart",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "63ec8d36-ebca-4fb3-9b35-ff78698e4203",
+                      "is_selected": true,
+                      "display_name": "Faechergruppe",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "4fc42b2a-9894-4ea9-83b3-248342e96cd5",
+                      "is_selected": true,
+                      "display_name": "Wert_EUR",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "8c713c0d-6ef9-44df-8151-2be99f191aeb",
+                  "is_selected": false,
+                  "display_name": "hochschulpersonal",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "9da5debc-3321-49ed-9137-f7ac76b36abb",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "a95c0366-7d1e-480d-b1ed-2dbc2802cf45",
+                      "is_selected": true,
+                      "display_name": "Beschaeftigungsverhaeltnis",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "8ae359ea-2b7d-4a51-9e77-ab89a7fec617",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "c155711e-fc13-4477-b7a4-fb9654352d01",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "839fc9a9-963d-4e4d-805f-d205d486bb50",
+                  "is_selected": false,
+                  "display_name": "professoren",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "ad4a438d-ba8c-4013-bca4-ff94479d0a44",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "933123df-af89-4f19-90c4-e168f42a1527",
+                      "is_selected": true,
+                      "display_name": "Faechergruppe",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "6517d5fb-1dfe-43e5-9000-86069ef6af5b",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "e20e78d1-a478-4d3e-b186-2b4b9776d5b6",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "daa6587d-e3c7-46c6-911c-642f5215139f",
+                  "is_selected": false,
+                  "display_name": "studierendebund",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "543138d4-54e7-47cf-b1cc-b063db6bd7cf",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "5f26fd1d-e6f9-42cb-99ba-8d7b9826178c",
+                      "is_selected": true,
+                      "display_name": "Wintersemester",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "4906977f-7148-4379-abff-5ad42a2be1f8",
+                      "is_selected": true,
+                      "display_name": "Nationalitaet",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "693d4785-81d5-4aa4-99eb-332a909567c2",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "a553c2af-a65f-401a-b46d-3a58c5503fc1",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "74c879f8-9f11-499f-a281-36747797ba07",
+                  "is_selected": false,
+                  "display_name": "hochschulfinanzen",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "1bcb74b5-bf8e-486c-bca0-ca94ed95598b",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "b780140d-fbfa-4993-b280-d95007ee5abc",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "e07b7bf5-6f26-4a02-89af-2c577e8ea8ea",
+                      "is_selected": true,
+                      "display_name": "Kennzahl",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "3e6ac810-1227-4bb6-8243-1ff13a133c6e",
+                      "is_selected": true,
+                      "display_name": "Wert_EUR",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "9f1f7e13-002e-40b5-a092-36425c3cf116",
+                  "is_selected": false,
+                  "display_name": "ausgaben",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "ac03ba0f-6e7d-46ea-9e91-8f65e181bf78",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "b8f9a8d2-ea39-4f65-9240-bbea29ce856e",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "6ecf54c7-e0eb-4ffc-90e0-5a7fc07149fb",
+                      "is_selected": true,
+                      "display_name": "Hochschulart",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "bfd3b6cf-b980-4a8f-8211-43140eba9e32",
+                      "is_selected": true,
+                      "display_name": "Faechergruppe",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "e43cae88-58a5-46d2-b10d-7fea24dcf446",
+                      "is_selected": true,
+                      "display_name": "Wert_EUR",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "b124a6ad-ed5c-41e7-a8f7-60bebe3725ce",
+                  "is_selected": false,
+                  "display_name": "studierende",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "6351a768-36a7-4e94-843f-ebfa9b8f1cf4",
+                      "is_selected": true,
+                      "display_name": "Hochschule_Code",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "b408c872-3b2a-4866-9a8f-7a155336cf38",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "e31a5513-7da6-46ff-b56b-7e39c6cfebe2",
+                      "is_selected": true,
+                      "display_name": "Wintersemester",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "5c698022-b625-4e0a-9471-548c85c6f305",
+                      "is_selected": true,
+                      "display_name": "Nationalitaet",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "44ca7994-0706-4072-a468-cd7c5e8e9b74",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "f467c240-a9f7-48bd-9e03-c448980b8784",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "b5930646-051f-447c-817c-0ada73c18064",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "1f778b09-89f2-4a9b-9864-cbf174b3c01c",
+                  "is_selected": false,
+                  "display_name": "hochschulen",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "5d9b64fa-be68-422e-a790-dc3e06433a18",
+                      "is_selected": true,
+                      "display_name": "Hochschule_Code",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "3cb72355-a27c-4ec6-aed8-83510e586cff",
+                      "is_selected": true,
+                      "display_name": "Hochschule",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "ac8ae70b-acf6-4a9a-99b9-cfd934677ddd",
+                      "is_selected": true,
+                      "display_name": "Parent_University",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "f9d0883b-114f-49b1-a14e-6edd4761462c",
+                      "is_selected": true,
+                      "display_name": "QID",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "13080f63-9f04-4cad-b6d9-6e1c9e361274",
+                      "is_selected": true,
+                      "display_name": "Source",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "128f3f39-7a71-4066-89fb-5dad585d0534",
+                      "is_selected": true,
+                      "display_name": "Wiki_Name",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "625a2f02-0d99-4b07-85ff-8ec2f7c1b57b",
+                      "is_selected": true,
+                      "display_name": "Lat",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "1c9373e0-e0e3-456c-b333-54e95d77ce06",
+                      "is_selected": true,
+                      "display_name": "Lon",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "8ab047ef-7d23-413b-96d1-fd1f366ca2d3",
+                      "is_selected": true,
+                      "display_name": "Bundesland",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "3e3163f0-bb48-4fd2-863f-763353f61be7",
+                      "is_selected": true,
+                      "display_name": "Gruendungsjahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "766862d6-1395-4659-91f6-43f6500ef5c2",
+                      "is_selected": true,
+                      "display_name": "Stadt",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "id": "f6891c34-1f8f-49af-a0ba-f315229593b0",
+                  "is_selected": false,
+                  "display_name": "studienanfaengerhochschule",
+                  "type": "lakehouse_tables.table",
+                  "description": null,
+                  "children": [
+                    {
+                      "id": "d9c4f103-94cb-424b-8903-b839df4f58b5",
+                      "is_selected": true,
+                      "display_name": "Jahr",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "datetime2",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "81883a30-11b6-4d0e-9c40-125108b05fdb",
+                      "is_selected": true,
+                      "display_name": "Wintersemester",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "1b557f42-37ba-4173-be60-9693c7de3545",
+                      "is_selected": true,
+                      "display_name": "Hochschule_Code",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "e8d557f0-4263-4a89-8c9e-df7af423d22e",
+                      "is_selected": true,
+                      "display_name": "Nationalitaet",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "b2546f0c-e20b-4432-8c1c-3d2c86df4503",
+                      "is_selected": true,
+                      "display_name": "Geschlecht",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "varchar",
+                      "description": null,
+                      "children": []
+                    },
+                    {
+                      "id": "551738b6-0ba6-45db-a3f1-0e93b22dfd12",
+                      "is_selected": true,
+                      "display_name": "Wert",
+                      "type": "lakehouse_tables.column",
+                      "data_type": "float",
+                      "description": null,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1310 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "__SEMANTICMODEL_ID__",
+  "workspaceId": "__WORKSPACE_ID__",
+  "dataSourceInstructions": null,
+  "displayName": "Hochschule",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": {
+    "csdl_relationships": "[{\"FromTable\":\"Hochschulpersonal\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Hochschulpersonal\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Drittmittel\",\"FromColumn\":\"Bundesland\",\"ToTable\":\"Bundesland\",\"ToColumn\":\"Bundesland2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Drittmittel\",\"FromColumn\":\"Faechergruppe\",\"ToTable\":\"F\\u00E4chergruppe\",\"ToColumn\":\"Faechergruppe\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Drittmittel\",\"FromColumn\":\"Hochschulart\",\"ToTable\":\"Hochschulart\",\"ToColumn\":\"Hochschulart2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Drittmittel\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierende\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierende\",\"FromColumn\":\"Nationalitaet\",\"ToTable\":\"Nationalit\\u00E4t\",\"ToColumn\":\"Nationalitaet\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierende\",\"FromColumn\":\"Hochschule_Code\",\"ToTable\":\"Hochschulen\",\"ToColumn\":\"Hochschule_Code\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierende\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierende\",\"FromColumn\":\"Bundesland\",\"ToTable\":\"Bundesland\",\"ToColumn\":\"Bundesland2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Hochschulfinanzen\",\"FromColumn\":\"Bundesland\",\"ToTable\":\"Bundesland\",\"ToColumn\":\"Bundesland2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Hochschulfinanzen\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierendebund\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierendebund\",\"FromColumn\":\"Nationalitaet\",\"ToTable\":\"Nationalit\\u00E4t\",\"ToColumn\":\"Nationalitaet\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studierendebund\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Wisspersonalfach\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Wisspersonalfach\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Einnahmen\",\"FromColumn\":\"Faechergruppe\",\"ToTable\":\"F\\u00E4chergruppe\",\"ToColumn\":\"Faechergruppe\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Einnahmen\",\"FromColumn\":\"Bundesland\",\"ToTable\":\"Bundesland\",\"ToColumn\":\"Bundesland2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Einnahmen\",\"FromColumn\":\"Hochschulart\",\"ToTable\":\"Hochschulart\",\"ToColumn\":\"Hochschulart2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Einnahmen\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Ausgaben\",\"FromColumn\":\"Bundesland\",\"ToTable\":\"Bundesland\",\"ToColumn\":\"Bundesland2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Ausgaben\",\"FromColumn\":\"Faechergruppe\",\"ToTable\":\"F\\u00E4chergruppe\",\"ToColumn\":\"Faechergruppe\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Ausgaben\",\"FromColumn\":\"Hochschulart\",\"ToTable\":\"Hochschulart\",\"ToColumn\":\"Hochschulart2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Ausgaben\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Professoren\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Professoren\",\"FromColumn\":\"Faechergruppe\",\"ToTable\":\"F\\u00E4chergruppe\",\"ToColumn\":\"Faechergruppe\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Professoren\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studienanf\\u00E4nger\",\"FromColumn\":\"Hochschule_Code\",\"ToTable\":\"Hochschulen\",\"ToColumn\":\"Hochschule_Code\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studienanf\\u00E4nger\",\"FromColumn\":\"Geschlecht\",\"ToTable\":\"Geschlecht\",\"ToColumn\":\"Geschlecht2\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studienanf\\u00E4nger\",\"FromColumn\":\"Nationalitaet\",\"ToTable\":\"Nationalit\\u00E4t\",\"ToColumn\":\"Nationalitaet\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"},{\"FromTable\":\"Studienanf\\u00E4nger\",\"FromColumn\":\"Jahr\",\"ToTable\":\"Calendar\",\"ToColumn\":\"Datum\",\"IsActive\":true,\"IsBidirectional\":false,\"Cardinality\":\"ManyToOne\"}]"
+  },
+  "elements": [
+    {
+      "id": "6b528ff5-185d-49aa-aed5-38c975a4feeb",
+      "is_selected": true,
+      "display_name": "Bundesland",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "0e85dde8-b64c-4608-9a45-30d74643f349",
+          "is_selected": true,
+          "display_name": "Bundesland",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "d901f3e1-4d7d-44bf-a795-6b5f91e0c21d",
+      "is_selected": true,
+      "display_name": "Calendar",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "c58b88f5-b522-4b9d-a4f8-156c493f30c1",
+          "is_selected": true,
+          "display_name": "Datum",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f0322d61-b31f-45a4-818e-30b600b91962",
+          "is_selected": true,
+          "display_name": "Jahr",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "4490d500-c245-4c9b-a2f3-339aad6d5d80",
+      "is_selected": false,
+      "display_name": "Fächergruppe",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "c19dd780-eb1f-4e59-aba0-c246dbf4831a",
+          "is_selected": true,
+          "display_name": "Faechergruppe",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "2756b46a-c803-4269-b981-551c0b39b1bd",
+      "is_selected": true,
+      "display_name": "Geschlecht",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "b29e8c80-811a-4e06-92bb-8d25af9696f7",
+          "is_selected": true,
+          "display_name": "Geschlecht",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "058d8e7f-1efa-4582-9644-1fcb34528265",
+      "is_selected": false,
+      "display_name": "Hochschulart",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "05f3cf89-ef41-4cb1-957c-695e328fa613",
+          "is_selected": true,
+          "display_name": "Hochschulart",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "23f2aa97-33a0-4996-b6c0-a0b894249b5b",
+      "is_selected": true,
+      "display_name": "Hochschulen",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "763d5610-2e60-48b3-a27a-e2648bd0e98f",
+          "is_selected": true,
+          "display_name": "Avg Lat",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f1e64835-a12f-4f28-8bb2-5f80cc23a756",
+          "is_selected": true,
+          "display_name": "Avg Lon",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c42bab2d-a698-4901-8951-6a3dff26c028",
+          "is_selected": true,
+          "display_name": "Bundesland",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "da3a9329-e8e2-4de4-9e7f-5407a969a70f",
+          "is_selected": true,
+          "display_name": "Gruendungsjahr",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "393a0242-3ec8-4d67-bb41-a0f253027373",
+          "is_selected": true,
+          "display_name": "Hochschule",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dcef9ef8-eecb-4c14-bfcb-1569ed34aae9",
+          "is_selected": true,
+          "display_name": "Lat",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7397a79e-1c93-4dc0-9f74-7c9bd0fbea31",
+          "is_selected": true,
+          "display_name": "Lon",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7e4d6b1c-5a09-4e7a-9f1b-2d8c3a4e5f60",
+          "is_selected": true,
+          "display_name": "Parent_University",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "95a60dfa-5e53-478b-afce-b6f867be0519",
+          "is_selected": true,
+          "display_name": "QID",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "22ae640f-e9aa-4e78-b024-76be8ca68f25",
+          "is_selected": true,
+          "display_name": "Source",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4ed841da-f854-4a1c-b1d2-31bb655ad619",
+          "is_selected": true,
+          "display_name": "Stadt",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0c8f13a6-69ec-4b26-af4c-9213f1765efa",
+          "is_selected": true,
+          "display_name": "Wiki_Name",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "304c683d-0197-4022-acc7-f0a624b68b2b",
+      "is_selected": false,
+      "display_name": "Hochschulpersonal",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "92821d8b-cf64-465e-b651-59f494caa8da",
+          "is_selected": true,
+          "display_name": "Beschaeftigungsverhaeltnis",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "c27b64b6-4468-4cc2-bf63-f00b9fb0f16d",
+      "is_selected": true,
+      "display_name": "Measure",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "a1b2c3d4-0004-4000-8000-000000000004",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Share of German students. Denominator excludes the GENESIS \"Insgesamt\" subtotal.",
+          "children": []
+        },
+        {
+          "id": "cf2af53d-ba38-492e-b29f-8d89d3f3d2b1",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "30ed7a81-0c4a-4fef-818f-fbe87796b35a",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "44dc7b6e-d8f4-455b-8aa3-dbc2a53fbada",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dfc6cf53-a306-463c-99c1-4387dd9b364c",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "197aaf14-c0b6-4b2a-8a37-c7ac45f67371",
+          "is_selected": true,
+          "display_name": "% of Studierende Deutsch Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a1b2c3d4-0003-4000-8000-000000000003",
+          "is_selected": true,
+          "display_name": "% of Studierende International",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Share of international (\"Ausländer\") students. Denominator excludes the GENESIS \"Insgesamt\" subtotal.",
+          "children": []
+        },
+        {
+          "id": "008c2a1a-0a61-4422-934b-dedea3ece2b3",
+          "is_selected": true,
+          "display_name": "% of Studierende International Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4bfe06ba-0896-4ad2-976a-7893a205a9ab",
+          "is_selected": true,
+          "display_name": "% of Studierende International Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a992078c-b18b-4b78-a8ef-685cc3b38488",
+          "is_selected": true,
+          "display_name": "% of Studierende International PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "bcc13a7a-65e8-46e2-8199-e59975e9de87",
+          "is_selected": true,
+          "display_name": "% of Studierende International Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d616a3fa-10c7-4411-addd-a71367a04ba1",
+          "is_selected": true,
+          "display_name": "% of Studierende International Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a1b2c3d4-0002-4000-8000-000000000002",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Share of male students. Denominator excludes the GENESIS \"Insgesamt\" subtotal.",
+          "children": []
+        },
+        {
+          "id": "e1c9d512-cc0b-4c93-9456-1c4f9504b1a5",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9a81bbc0-836a-44f1-a558-cdf5cd6f15aa",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "db1090ac-bee2-4ff4-a9df-4656467262da",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "896a3a7f-c2ce-4550-9295-8d716933cb5f",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "abebe764-6cad-4d99-ab6b-e17a3e5cbf48",
+          "is_selected": true,
+          "display_name": "% of Studierende männlich Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a1b2c3d4-0001-4000-8000-000000000001",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "Share of female students. Denominator excludes the GENESIS \"Insgesamt\" subtotal.",
+          "children": []
+        },
+        {
+          "id": "a65157d6-40ba-4899-a605-90132f483662",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7b8edb3b-1fb0-43a4-b518-c83a7265c282",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6b1a3ac9-424b-4c4d-a7ec-e093594fd523",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "38988b94-383a-4e7f-a30e-b01edae86233",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9613536a-cde6-426c-a9aa-43b61a43ab82",
+          "is_selected": true,
+          "display_name": "% of Studierende weiblich Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fae2333f-0160-4512-901a-88e0e68a4f7c",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "3cb6deff-7dc6-4b60-80ed-b83934c2c94d",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR alle Jahre",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "a37db327-5439-4191-b5a5-58addfd4d7b0",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Ausgaben'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "3694e9d0-a276-4511-9772-35c4d8afb9b0",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f3f133e5-e917-48bf-b319-bfcc3e6935fe",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "14f1b94d-b2d8-45af-aa52-09cefb48236f",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "aa025da4-e2f6-4ee4-aef0-5905dc97ad9e",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f082372d-c753-41b3-b625-10171eb25fe3",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Detail Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f9ff793b-4219-41e8-b2d4-c438b2a7799d",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5313c4ec-ed08-4a0d-adf3-7aeff1ebd8bb",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f3e5380e-16cb-4ca2-9b79-66681b924b80",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "486dbb88-4c87-48df-9e5f-6a8c772306db",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "86dbd7f7-623a-4a61-8baf-5bf5af283b37",
+          "is_selected": true,
+          "display_name": "Ausgaben EUR Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d7a9580e-a25c-458e-bffb-d113eb7f4595",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'drittmittel'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "64a82d21-25e7-4d2a-8aaa-bf11ea0aff07",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fa6c0e18-bf28-462b-b392-6a8e83edaee9",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9d06ee66-56ed-4dde-a199-46294afe8a92",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3e103535-3843-4ee3-a944-f5f7e24eeaf5",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "23519b57-9445-4c0c-af6e-803fef6bb209",
+          "is_selected": true,
+          "display_name": "Drittmittel EUR Detail Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e3542dba-205f-4f97-8ce0-5c54d4da3240",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "d61d26fe-bbf4-4593-94e9-603d3e498194",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR alle Jahre",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "bd10dcce-e89f-4053-a82d-a1337f82abf9",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "21ac0196-79c7-4f26-a8d8-456654897f0c",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "83c1299d-aa94-44f7-a215-0ee4c8b64930",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "182adbb0-b02d-48d3-bf60-aa830d1f4350",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0f1e87d0-c138-486d-8be2-c8832285b1ad",
+          "is_selected": true,
+          "display_name": "Drittmitteleinnahmen EUR Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d2ab02fa-667a-4398-93e8-c87d2321c8b4",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "7d2268ef-3e49-4941-ae1e-898198589537",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR alle Jahre",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "860a4bab-dcab-4a26-be34-2eda770e6b3b",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Einnahmen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "03adf70f-9034-4bea-b92f-fcc0498e144d",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3346459b-1a5b-4538-a9a0-3a16d3be3ee7",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "696a97cc-a412-4dbd-97af-552a2584f562",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a064e41e-3454-48f7-b082-1f4b8a4917fd",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "24a71286-72a1-4dca-80d6-191c537052e9",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Detail Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "44ba5d37-8fcd-4893-8be7-71df9c4c40fc",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e3c17d55-2c46-4656-a266-2efc5782bc5e",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8fa35f0d-a1dc-4ee4-8e27-2c92fa2c6972",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f5634767-a0ae-4ba3-b0e1-ef8d7edd1fad",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fe47837a-52b8-40f6-b871-8f97113051d2",
+          "is_selected": true,
+          "display_name": "Einnahmen EUR Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1ae7131e-dfa8-4a15-9c5d-d790329975cf",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulpersonal'[Wert]",
+          "children": []
+        },
+        {
+          "id": "5e8b6ca6-7aff-46ec-8d71-6b97208ef9f6",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6af2b865-e699-4efc-9d0a-44de9f886930",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1005f864-58fb-47e3-be0e-3fb3ae564909",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "40631e16-aa7c-48c3-9e59-b863e21ff078",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "21546b74-c5b6-43b1-9ab9-2de2f8c05149",
+          "is_selected": true,
+          "display_name": "Hochschulpersonal Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2b844c95-af04-4af4-83f7-5444910e34bb",
+          "is_selected": true,
+          "display_name": "Professoren",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Professoren'[Wert]",
+          "children": []
+        },
+        {
+          "id": "15ad5d10-e154-4c22-81b3-4eb584767e07",
+          "is_selected": true,
+          "display_name": "Professoren Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "aa6e8cb4-66ee-4dd0-9d29-4eaa7f417edc",
+          "is_selected": true,
+          "display_name": "Professoren Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6de1cbf6-bfbe-4b55-b2c7-9d4e7aa67f3c",
+          "is_selected": true,
+          "display_name": "Professoren PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "617047a2-4030-45eb-bbd0-80215cdd52a6",
+          "is_selected": true,
+          "display_name": "Professoren Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5dd50c14-8876-44f2-9ab3-2d1363095cac",
+          "is_selected": true,
+          "display_name": "Professoren Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "562595a7-f5a1-46e6-8428-d8d1614521e5",
+          "is_selected": true,
+          "display_name": "Studienanfänger",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Studienanfaengerhochschule'[Wert]",
+          "children": []
+        },
+        {
+          "id": "551ec751-a6f2-49ac-b033-e93da36168e6",
+          "is_selected": true,
+          "display_name": "Studienanfänger alle Jahr",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "77b5cca2-a5f2-4a5e-b3dd-3c2c55f26eba",
+          "is_selected": true,
+          "display_name": "Studienanfänger Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "811eb836-6da4-456e-872c-e0e7501c39fa",
+          "is_selected": true,
+          "display_name": "Studienanfänger Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d12357aa-fd8d-458a-8783-bfabcd946257",
+          "is_selected": true,
+          "display_name": "Studienanfänger PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "10d86ee9-9c35-4d37-9dba-8038caf64d9a",
+          "is_selected": true,
+          "display_name": "Studienanfänger Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7a9ff8ec-ac54-4a45-9895-b00ab262f575",
+          "is_selected": true,
+          "display_name": "Studienanfänger Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5a654499-babf-424e-a6a9-d07f43b14e58",
+          "is_selected": true,
+          "display_name": "Studierende",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Studierende'[Wert]",
+          "children": []
+        },
+        {
+          "id": "e9ae5ecf-d51e-4791-90a4-97f9a2456e96",
+          "is_selected": true,
+          "display_name": "Studierende Alle Jahre",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8aa62431-d6f9-4535-9ce6-7c8d4b1d9659",
+          "is_selected": true,
+          "display_name": "Studierende Gesamt",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2815ea5f-65de-4d53-9fe1-37445ec60f8b",
+          "is_selected": true,
+          "display_name": "Studierende Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5a0ad608-efc8-48ac-8303-d02e5b400baf",
+          "is_selected": true,
+          "display_name": "Studierende Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f720e7f2-37bb-4dd6-b8aa-3314407bba89",
+          "is_selected": true,
+          "display_name": "Studierende PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "642becc7-f9cb-4ba7-b260-b84469056bb1",
+          "is_selected": true,
+          "display_name": "Studierende Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7efd3e1f-48a6-4256-a1b2-f4bfd4bb6caa",
+          "is_selected": true,
+          "display_name": "Studierende Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "af1ae1da-f2b5-49ca-aa74-85a7429dd705",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "b30fea75-25c7-451d-b190-8a3c729e50c5",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR alle Jahre",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "d2ebff54-d4a3-4521-b7fa-a5de7168da52",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "298193ab-1b97-4fab-87c4-f93b7929c644",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6451addd-decd-4a26-a2f2-f9dc2e00fb27",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "15339e46-eccf-4263-9aa7-d46cf0b25298",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2e35c223-4045-4b20-9c6a-9b0589921024",
+          "is_selected": true,
+          "display_name": "Trägermittel EUR Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1b946432-6f95-442f-bea2-04bb89eb8fce",
+          "is_selected": true,
+          "display_name": "Wert EUR",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]",
+          "children": []
+        },
+        {
+          "id": "c652c226-5bc4-4d42-8a42-095e22126498",
+          "is_selected": true,
+          "display_name": "Wert EUR Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "cbc0cc8a-a7cd-4180-bf84-78a755b010b2",
+          "is_selected": true,
+          "display_name": "Wert EUR Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ed2e0e07-3ec8-4a80-8a6a-f2907fe425e2",
+          "is_selected": true,
+          "display_name": "Wert EUR PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ba871622-0303-411f-b7a6-a6c518683feb",
+          "is_selected": true,
+          "display_name": "Wert EUR Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7aabbe9e-4f40-4e36-96bc-e085ddd81801",
+          "is_selected": true,
+          "display_name": "Wert EUR Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9b449974-534c-45e3-b8ef-6c64e2ab6185",
+          "is_selected": true,
+          "display_name": "Wisspersonal",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": "This measure is the sum of column 'Wisspersonalfach'[Wert]",
+          "children": []
+        },
+        {
+          "id": "02b93ead-75e6-4e15-a535-83aecb888060",
+          "is_selected": true,
+          "display_name": "Wisspersonal Max Green PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5a37d37a-366d-4cbd-a217-e824981d2993",
+          "is_selected": true,
+          "display_name": "Wisspersonal Max Red AC",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "75709cfb-c8bf-47db-a3c6-ea01d5c2a5c5",
+          "is_selected": true,
+          "display_name": "Wisspersonal PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "6909f070-3c3a-42ff-a0f0-9c2e7481a3ee",
+          "is_selected": true,
+          "display_name": "Wisspersonal Δ PY",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b36a3e37-5647-49cf-ad29-307bafa8dc98",
+          "is_selected": true,
+          "display_name": "Wisspersonal Δ PY %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "80e025c4-1dc3-4acb-b661-3ac42b6bc18d",
+      "is_selected": false,
+      "display_name": "Nationalität",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "45c25964-f6a1-4ff4-98db-3b0af0a0da79",
+          "is_selected": true,
+          "display_name": "Nationalitaet",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "7155935c-53bf-455d-aca4-538f9f18f2f2",
+      "is_selected": true,
+      "display_name": "Studienanfänger",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "e803aa4e-f952-494d-9286-b3df066eb179",
+          "is_selected": true,
+          "display_name": "Wintersemester",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "f989f9dd-58a0-4e4e-9bf3-75acc8080f84",
+      "is_selected": false,
+      "display_name": "Studierendebund",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "cb0d94e9-06cc-48d6-ac43-bdf7322a55e5",
+          "is_selected": true,
+          "display_name": "Wert",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5e61ed37-9181-48ca-8250-664b5871683b",
+      "is_selected": false,
+      "display_name": "Wisspersonalfach",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "39bfe14e-4f4d-472c-ba49-6ba3662b610f",
+          "is_selected": true,
+          "display_name": "LehrForschungsbereich",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+relationship 278f66db-a5a5-8543-5c0c-15bc154bbf5b
+	relyOnReferentialIntegrity
+	fromColumn: Studierende.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship 421f1f5f-d315-7e3c-be60-2cfdc484ded8
+	relyOnReferentialIntegrity
+	fromColumn: Hochschulpersonal.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship f82f60c8-0b30-d532-5a8b-bfaff071c873
+	relyOnReferentialIntegrity
+	fromColumn: Studierende.Nationalitaet
+	toColumn: Nationalität.Nationalitaet
+
+relationship f85231b7-7354-f27e-64b6-bf22af45afd8
+	relyOnReferentialIntegrity
+	fromColumn: Studienanfänger.Hochschule_Code
+	toColumn: Hochschulen.Hochschule_Code
+
+relationship 066ed8e3-09ae-0734-e34d-ed6054cf7192
+	relyOnReferentialIntegrity
+	fromColumn: Studierende.Hochschule_Code
+	toColumn: Hochschulen.Hochschule_Code
+
+relationship 5d766d2c-077b-48ad-24f3-bc21370627e6
+	relyOnReferentialIntegrity
+	fromColumn: Hochschulfinanzen.Bundesland
+	toColumn: Bundesland.Bundesland
+
+relationship a481ce94-5c3d-7f1f-a9ff-608935fb2acb
+	relyOnReferentialIntegrity
+	fromColumn: Drittmittel.Bundesland
+	toColumn: Bundesland.Bundesland
+
+relationship 3c0e156c-b059-f299-7378-c9dddb4cf4de
+	relyOnReferentialIntegrity
+	fromColumn: Drittmittel.Faechergruppe
+	toColumn: Fächergruppe.Faechergruppe
+
+relationship 5cb338df-c96a-4f99-d91f-db18db85bc8e
+	fromColumn: Drittmittel.Hochschulart
+	toColumn: Hochschulart.Hochschulart
+
+relationship 2b20a0d6-ad42-9aa4-c777-78c545f5d5e3
+	relyOnReferentialIntegrity
+	fromColumn: Wisspersonalfach.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship 9e5a7a49-767e-661b-1542-71a467e8b82d
+	relyOnReferentialIntegrity
+	fromColumn: Studierendebund.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship 8a7734b7-6e0c-0bc6-f743-38b8d9a5c86b
+	relyOnReferentialIntegrity
+	fromColumn: Studierendebund.Nationalitaet
+	toColumn: Nationalität.Nationalitaet
+
+relationship 3a4b3306-d715-1744-5af2-73809c67d5b9
+	relyOnReferentialIntegrity
+	fromColumn: Studienanfänger.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship 03fbf544-a189-14c5-f5fc-77e931a7b740
+	relyOnReferentialIntegrity
+	fromColumn: Studienanfänger.Nationalitaet
+	toColumn: Nationalität.Nationalitaet
+
+relationship 9be2cd21-ab1e-6dc2-405f-e545ed23c551
+	relyOnReferentialIntegrity
+	fromColumn: Professoren.Geschlecht
+	toColumn: Geschlecht.Geschlecht
+
+relationship dd59d0fb-5bcb-4d7f-740d-140469f818f8
+	relyOnReferentialIntegrity
+	fromColumn: Professoren.Faechergruppe
+	toColumn: Fächergruppe.Faechergruppe
+
+relationship bff43b0c-035b-d7ee-c63b-e7c8d4bc8811
+	relyOnReferentialIntegrity
+	fromColumn: Einnahmen.Faechergruppe
+	toColumn: Fächergruppe.Faechergruppe
+
+relationship 54bc3edc-bf4f-b45d-6b53-c1ca7113240f
+	relyOnReferentialIntegrity
+	fromColumn: Einnahmen.Bundesland
+	toColumn: Bundesland.Bundesland
+
+relationship f27d3c47-ba8d-04f5-6619-70cbc53069fa
+	relyOnReferentialIntegrity
+	fromColumn: Einnahmen.Hochschulart
+	toColumn: Hochschulart.Hochschulart
+
+relationship ad79c0a7-4598-a021-04d4-c590df9fa397
+	relyOnReferentialIntegrity
+	fromColumn: Ausgaben.Bundesland
+	toColumn: Bundesland.Bundesland
+
+relationship e3ec4ac1-2a57-fe1f-c2cb-3788391c2f92
+	relyOnReferentialIntegrity
+	fromColumn: Ausgaben.Faechergruppe
+	toColumn: Fächergruppe.Faechergruppe
+
+relationship 199b3629-1981-8e07-c490-8b2880b9682a
+	relyOnReferentialIntegrity
+	fromColumn: Ausgaben.Hochschulart
+	toColumn: Hochschulart.Hochschulart
+
+relationship c7a37603-8fbd-4501-85ee-7750c2a30430
+	fromColumn: Professoren.Jahr
+	toColumn: Calendar.Datum
+
+relationship cc1ddc1e-d1d8-4fa4-98e8-bddb9a405a55
+	fromColumn: Hochschulpersonal.Jahr
+	toColumn: Calendar.Datum
+
+relationship 1c65b421-d5da-44f3-a220-591cac00411a
+	fromColumn: Drittmittel.Jahr
+	toColumn: Calendar.Datum
+
+relationship f2026f46-a99a-4354-9ae7-833bce0aba1c
+	fromColumn: Studierende.Jahr
+	toColumn: Calendar.Datum
+
+relationship 6bb37d4f-0fc9-4163-bfec-dd1a77c9d4bc
+	fromColumn: Hochschulfinanzen.Jahr
+	toColumn: Calendar.Datum
+
+relationship a14b8834-f6b4-433f-9776-7a4d60e6d151
+	fromColumn: Einnahmen.Jahr
+	toColumn: Calendar.Datum
+
+relationship 6768fbe4-d057-4072-b4ed-705ad7ba6b88
+	fromColumn: Studierendebund.Jahr
+	toColumn: Calendar.Datum
+
+relationship 18105929-eb03-45d0-992a-1eb972093f13
+	fromColumn: Wisspersonalfach.Jahr
+	toColumn: Calendar.Datum
+
+relationship 3e167c36-b7fc-48c8-bd98-c9b7cc1d7c34
+	fromColumn: Ausgaben.Jahr
+	toColumn: Calendar.Datum
+
+relationship c4263eae-78e4-4fef-a62d-fa753e166f22
+	fromColumn: Studienanfänger.Jahr
+	toColumn: Calendar.Datum
+
+relationship a1b2c3d4-0010-4000-8000-000000000010
+	relyOnReferentialIntegrity
+	fromColumn: Studierende.Bundesland
+	toColumn: Bundesland.Bundesland
+

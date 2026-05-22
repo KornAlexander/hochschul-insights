@@ -1,0 +1,984 @@
+table Measure
+	lineageTag: c27b64b6-4468-4cc2-bf63-f00b9fb0f16d
+
+	/// This measure is the sum of column 'drittmittel'[Wert_EUR]
+	measure 'Drittmittel EUR Detail' = SUM('Drittmittel'[Wert_EUR])
+		formatString: #,##0.0
+		displayFolder: Drittmittel
+		lineageTag: d7a9580e-a25c-458e-bffb-d113eb7f4595
+
+	/// This measure is the sum of column 'Studierende'[Wert]
+	measure Studierende =
+			SUM('Studierende'[Wert])
+			/*
+			IF (
+			    ISFILTERED ( 'Calendar'[Jahr] ),
+			    SUM('Studierende'[Wert]),
+			    CALCULATE ( SUM('Studierende'[Wert]), 'Calendar'[Jahr] = 2024 )
+			)*/
+		formatString: #,##0
+		displayFolder: Studierende
+		lineageTag: 5a654499-babf-424e-a6a9-d07f43b14e58
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Wert EUR' = SUM('Hochschulfinanzen'[Wert_EUR])
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: 1b946432-6f95-442f-bea2-04bb89eb8fce
+
+	/// This measure is the sum of column 'Einnahmen'[Wert_EUR]
+	measure 'Einnahmen EUR Detail' = SUM('Einnahmen'[Wert_EUR])
+		formatString: #,##0.0
+		displayFolder: Einnahmen
+		lineageTag: 860a4bab-dcab-4a26-be34-2eda770e6b3b
+
+	/// This measure is the sum of column 'Ausgaben'[Wert_EUR]
+	measure 'Ausgaben EUR Detail' = SUM('Ausgaben'[Wert_EUR])
+		formatString: #,##0.0
+		displayFolder: Ausgaben
+		lineageTag: a37db327-5439-4191-b5a5-58addfd4d7b0
+
+	/// This measure is the sum of column 'Professoren'[Wert]
+	measure Professoren = SUM('Professoren'[Wert])
+		formatString: #,##0
+		displayFolder: Professoren
+		lineageTag: 2b844c95-af04-4af4-83f7-5444910e34bb
+
+	/// This measure is the sum of column 'Studienanfaengerhochschule'[Wert]
+	measure Studienanfänger = SUM('Studienanfänger'[Wert])
+		formatString: #,##0
+		displayFolder: Studienanfänger
+		lineageTag: 562595a7-f5a1-46e6-8428-d8d1614521e5
+
+	/// Share of female students. Denominator excludes the GENESIS "Insgesamt" subtotal.
+	measure '% of Studierende weiblich' =
+			DIVIDE(
+				CALCULATE([Studierende], 'Geschlecht'[Geschlecht] = "weiblich"),
+				CALCULATE([Studierende], 'Geschlecht'[Geschlecht] IN { "männlich", "weiblich" })
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000001
+
+	/// Share of male students. Denominator excludes the GENESIS "Insgesamt" subtotal.
+	measure '% of Studierende männlich' =
+			DIVIDE(
+				CALCULATE([Studierende], 'Geschlecht'[Geschlecht] = "männlich"),
+				CALCULATE([Studierende], 'Geschlecht'[Geschlecht] IN { "männlich", "weiblich" })
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende
+		lineageTag: a1b2c3d4-0002-4000-8000-000000000002
+
+	/// Share of international ("Ausländer") students. Denominator excludes the GENESIS "Insgesamt" subtotal.
+	measure '% of Studierende International' =
+			DIVIDE(
+				CALCULATE([Studierende], 'Nationalität'[Nationalitaet] = "Ausländer"),
+				CALCULATE([Studierende], 'Nationalität'[Nationalitaet] IN { "Deutsche", "Ausländer" })
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende
+		lineageTag: a1b2c3d4-0003-4000-8000-000000000003
+
+	/// Share of German students. Denominator excludes the GENESIS "Insgesamt" subtotal.
+	measure '% of Studierende Deutsch' =
+			DIVIDE(
+				CALCULATE([Studierende], 'Nationalität'[Nationalitaet] = "Deutsche"),
+				CALCULATE([Studierende], 'Nationalität'[Nationalitaet] IN { "Deutsche", "Ausländer" })
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende
+		lineageTag: a1b2c3d4-0004-4000-8000-000000000004
+
+	measure 'Studierende PY' =
+			CALCULATE(
+			    [Studierende],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0
+		displayFolder: Studierende\PY
+		lineageTag: f720e7f2-37bb-4dd6-b8aa-3314407bba89
+
+	measure 'Studierende Δ PY' = [Studierende] - [Studierende PY]
+		formatString: #,##0
+		displayFolder: Studierende\PY
+		lineageTag: 642becc7-f9cb-4ba7-b260-b84469056bb1
+
+	measure 'Studierende Δ PY %' =
+			DIVIDE(
+			    [Studierende] - [Studierende PY],
+			    [Studierende]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 7efd3e1f-48a6-4256-a1b2-f4bfd4bb6caa
+
+	measure 'Studierende Max Green PY' =
+			IF(
+			    [Studierende Δ PY] > 0,
+			    MAX(
+			        [Studierende],
+			        [Studierende PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Studierende\PY
+		lineageTag: 2815ea5f-65de-4d53-9fe1-37445ec60f8b
+
+	measure 'Studierende Max Red AC' =
+			IF(
+			    [Studierende Δ PY] < 0,
+			    MAX(
+			        [Studierende],
+			        [Studierende PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Studierende\PY
+		lineageTag: 5a0ad608-efc8-48ac-8303-d02e5b400baf
+
+	measure '% of Studierende weiblich PY' =
+			CALCULATE(
+			    [% of Studierende weiblich],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende\PY
+		lineageTag: 6b1a3ac9-424b-4c4d-a7ec-e093594fd523
+
+	measure '% of Studierende weiblich Δ PY' = [% of Studierende weiblich] - [% of Studierende weiblich PY]
+		formatString: 0.0pp;-0.0pp;0.0pp
+		displayFolder: Studierende\PY
+		lineageTag: 38988b94-383a-4e7f-a30e-b01edae86233
+
+	measure '% of Studierende weiblich Δ PY %' =
+			DIVIDE(
+			    [% of Studierende weiblich] - [% of Studierende weiblich PY],
+			    [% of Studierende weiblich]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 9613536a-cde6-426c-a9aa-43b61a43ab82
+
+	measure '% of Studierende weiblich Max Green PY' =
+			IF(
+			    [% of Studierende weiblich Δ PY] > 0,
+			    MAX(
+			        [% of Studierende weiblich],
+			        [% of Studierende weiblich PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: a65157d6-40ba-4899-a605-90132f483662
+
+	measure '% of Studierende weiblich Max Red AC' =
+			IF(
+			    [% of Studierende weiblich Δ PY] < 0,
+			    MAX(
+			        [% of Studierende weiblich],
+			        [% of Studierende weiblich PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 7b8edb3b-1fb0-43a4-b518-c83a7265c282
+
+	measure '% of Studierende männlich PY' =
+			CALCULATE(
+			    [% of Studierende männlich],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende\PY
+		lineageTag: db1090ac-bee2-4ff4-a9df-4656467262da
+
+	measure '% of Studierende männlich Δ PY' = [% of Studierende männlich] - [% of Studierende männlich PY]
+		formatString: 0.0pp;-0.0pp;0.0pp
+		displayFolder: Studierende\PY
+		lineageTag: 896a3a7f-c2ce-4550-9295-8d716933cb5f
+
+	measure '% of Studierende männlich Δ PY %' =
+			DIVIDE(
+			    [% of Studierende männlich] - [% of Studierende männlich PY],
+			    [% of Studierende männlich]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: abebe764-6cad-4d99-ab6b-e17a3e5cbf48
+
+	measure '% of Studierende männlich Max Green PY' =
+			IF(
+			    [% of Studierende männlich Δ PY] > 0,
+			    MAX(
+			        [% of Studierende männlich],
+			        [% of Studierende männlich PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: e1c9d512-cc0b-4c93-9456-1c4f9504b1a5
+
+	measure '% of Studierende männlich Max Red AC' =
+			IF(
+			    [% of Studierende männlich Δ PY] < 0,
+			    MAX(
+			        [% of Studierende männlich],
+			        [% of Studierende männlich PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 9a81bbc0-836a-44f1-a558-cdf5cd6f15aa
+
+	measure '% of Studierende International PY' =
+			CALCULATE(
+			    [% of Studierende International],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende\PY
+		lineageTag: a992078c-b18b-4b78-a8ef-685cc3b38488
+
+	measure '% of Studierende International Δ PY' = [% of Studierende International] - [% of Studierende International PY]
+		formatString: 0.0pp;-0.0pp;0.0pp
+		displayFolder: Studierende\PY
+		lineageTag: bcc13a7a-65e8-46e2-8199-e59975e9de87
+
+	measure '% of Studierende International Δ PY %' =
+			DIVIDE(
+			    [% of Studierende International] - [% of Studierende International PY],
+			    [% of Studierende International]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: d616a3fa-10c7-4411-addd-a71367a04ba1
+
+	measure '% of Studierende International Max Green PY' =
+			IF(
+			    [% of Studierende International Δ PY] > 0,
+			    MAX(
+			        [% of Studierende International],
+			        [% of Studierende International PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 008c2a1a-0a61-4422-934b-dedea3ece2b3
+
+	measure '% of Studierende International Max Red AC' =
+			IF(
+			    [% of Studierende International Δ PY] < 0,
+			    MAX(
+			        [% of Studierende International],
+			        [% of Studierende International PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 4bfe06ba-0896-4ad2-976a-7893a205a9ab
+
+	measure '% of Studierende Deutsch PY' =
+			CALCULATE(
+			    [% of Studierende Deutsch],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0 %
+		displayFolder: Studierende\PY
+		lineageTag: 44dc7b6e-d8f4-455b-8aa3-dbc2a53fbada
+
+	measure '% of Studierende Deutsch Δ PY' = [% of Studierende Deutsch] - [% of Studierende Deutsch PY]
+		formatString: 0.0pp;-0.0pp;0.0pp
+		displayFolder: Studierende\PY
+		lineageTag: dfc6cf53-a306-463c-99c1-4387dd9b364c
+
+	measure '% of Studierende Deutsch Δ PY %' =
+			DIVIDE(
+			    [% of Studierende Deutsch] - [% of Studierende Deutsch PY],
+			    [% of Studierende Deutsch]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 197aaf14-c0b6-4b2a-8a37-c7ac45f67371
+
+	measure '% of Studierende Deutsch Max Green PY' =
+			IF(
+			    [% of Studierende Deutsch Δ PY] > 0,
+			    MAX(
+			        [% of Studierende Deutsch],
+			        [% of Studierende Deutsch PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: cf2af53d-ba38-492e-b29f-8d89d3f3d2b1
+
+	measure '% of Studierende Deutsch Max Red AC' =
+			IF(
+			    [% of Studierende Deutsch Δ PY] < 0,
+			    MAX(
+			        [% of Studierende Deutsch],
+			        [% of Studierende Deutsch PY]
+			    )
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studierende\PY
+		lineageTag: 30ed7a81-0c4a-4fef-818f-fbe87796b35a
+
+	measure 'Drittmittel EUR Detail PY' =
+			CALCULATE(
+			    [Drittmittel EUR Detail],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Drittmittel\PY
+		lineageTag: 9d06ee66-56ed-4dde-a199-46294afe8a92
+
+	measure 'Drittmittel EUR Detail Δ PY' = [Drittmittel EUR Detail] - [Drittmittel EUR Detail PY]
+		formatString: #,##0.0
+		displayFolder: Drittmittel\PY
+		lineageTag: 3e103535-3843-4ee3-a944-f5f7e24eeaf5
+
+	measure 'Drittmittel EUR Detail Δ PY %' =
+			DIVIDE(
+			    [Drittmittel EUR Detail] - [Drittmittel EUR Detail PY],
+			    [Drittmittel EUR Detail]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Drittmittel\PY
+		lineageTag: 23519b57-9445-4c0c-af6e-803fef6bb209
+
+	measure 'Drittmittel EUR Detail Max Green PY' =
+			IF(
+			    [Drittmittel EUR Detail Δ PY] > 0,
+			    MAX(
+			        [Drittmittel EUR Detail],
+			        [Drittmittel EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Drittmittel\PY
+		lineageTag: 64a82d21-25e7-4d2a-8aaa-bf11ea0aff07
+
+	measure 'Drittmittel EUR Detail Max Red AC' =
+			IF(
+			    [Drittmittel EUR Detail Δ PY] < 0,
+			    MAX(
+			        [Drittmittel EUR Detail],
+			        [Drittmittel EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Drittmittel\PY
+		lineageTag: fa6c0e18-bf28-462b-b392-6a8e83edaee9
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Ausgaben EUR' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Ausgaben der Hochschulen")
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: fae2333f-0160-4512-901a-88e0e68a4f7c
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Drittmitteleinnahmen EUR' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Drittmitteleinnahmen der Hochschulen")
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: e3542dba-205f-4f97-8ce0-5c54d4da3240
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Trägermittel EUR' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Trägermittel der Hochschulen")
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: af1ae1da-f2b5-49ca-aa74-85a7429dd705
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Einnahmen EUR' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Einnahmen der Hochschulen (ohne Trägermittel)")
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: d2ab02fa-667a-4398-93e8-c87d2321c8b4
+
+	measure 'Wert EUR PY' =
+			CALCULATE(
+			    [Wert EUR],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: ed2e0e07-3ec8-4a80-8a6a-f2907fe425e2
+
+	measure 'Wert EUR Δ PY' = [Wert EUR] - [Wert EUR PY]
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: ba871622-0303-411f-b7a6-a6c518683feb
+
+	measure 'Wert EUR Δ PY %' =
+			DIVIDE(
+			    [Wert EUR] - [Wert EUR PY],
+			    [Wert EUR]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 7aabbe9e-4f40-4e36-96bc-e085ddd81801
+
+	measure 'Wert EUR Max Green PY' =
+			IF(
+			    [Wert EUR Δ PY] > 0,
+			    MAX(
+			        [Wert EUR],
+			        [Wert EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: c652c226-5bc4-4d42-8a42-095e22126498
+
+	measure 'Wert EUR Max Red AC' =
+			IF(
+			    [Wert EUR Δ PY] < 0,
+			    MAX(
+			        [Wert EUR],
+			        [Wert EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: cbc0cc8a-a7cd-4180-bf84-78a755b010b2
+
+	measure 'Ausgaben EUR PY' =
+			CALCULATE(
+			    [Ausgaben EUR],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: f3e5380e-16cb-4ca2-9b79-66681b924b80
+
+	measure 'Ausgaben EUR Δ PY' = [Ausgaben EUR] - [Ausgaben EUR PY]
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 486dbb88-4c87-48df-9e5f-6a8c772306db
+
+	measure 'Ausgaben EUR Δ PY %' =
+			DIVIDE(
+			    [Ausgaben EUR] - [Ausgaben EUR PY],
+			    [Ausgaben EUR]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 86dbd7f7-623a-4a61-8baf-5bf5af283b37
+
+	measure 'Ausgaben EUR Max Green PY' =
+			IF(
+			    [Ausgaben EUR Δ PY] > 0,
+			    MAX(
+			        [Ausgaben EUR],
+			        [Ausgaben EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: f9ff793b-4219-41e8-b2d4-c438b2a7799d
+
+	measure 'Ausgaben EUR Max Red AC' =
+			IF(
+			    [Ausgaben EUR Δ PY] < 0,
+			    MAX(
+			        [Ausgaben EUR],
+			        [Ausgaben EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 5313c4ec-ed08-4a0d-adf3-7aeff1ebd8bb
+
+	measure 'Drittmitteleinnahmen EUR PY' =
+			CALCULATE(
+			    [Drittmitteleinnahmen EUR],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 83c1299d-aa94-44f7-a215-0ee4c8b64930
+
+	measure 'Drittmitteleinnahmen EUR Δ PY' = [Drittmitteleinnahmen EUR] - [Drittmitteleinnahmen EUR PY]
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 182adbb0-b02d-48d3-bf60-aa830d1f4350
+
+	measure 'Drittmitteleinnahmen EUR Δ PY %' =
+			DIVIDE(
+			    [Drittmitteleinnahmen EUR] - [Drittmitteleinnahmen EUR PY],
+			    [Drittmitteleinnahmen EUR]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 0f1e87d0-c138-486d-8be2-c8832285b1ad
+
+	measure 'Drittmitteleinnahmen EUR Max Green PY' =
+			IF(
+			    [Drittmitteleinnahmen EUR Δ PY] > 0,
+			    MAX(
+			        [Drittmitteleinnahmen EUR],
+			        [Drittmitteleinnahmen EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: bd10dcce-e89f-4053-a82d-a1337f82abf9
+
+	measure 'Drittmitteleinnahmen EUR Max Red AC' =
+			IF(
+			    [Drittmitteleinnahmen EUR Δ PY] < 0,
+			    MAX(
+			        [Drittmitteleinnahmen EUR],
+			        [Drittmitteleinnahmen EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 21ac0196-79c7-4f26-a8d8-456654897f0c
+
+	measure 'Trägermittel EUR PY' =
+			CALCULATE(
+			    [Trägermittel EUR],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 6451addd-decd-4a26-a2f2-f9dc2e00fb27
+
+	measure 'Trägermittel EUR Δ PY' = [Trägermittel EUR] - [Trägermittel EUR PY]
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 15339e46-eccf-4263-9aa7-d46cf0b25298
+
+	measure 'Trägermittel EUR Δ PY %' =
+			DIVIDE(
+			    [Trägermittel EUR] - [Trägermittel EUR PY],
+			    [Trägermittel EUR]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 2e35c223-4045-4b20-9c6a-9b0589921024
+
+	measure 'Trägermittel EUR Max Green PY' =
+			IF(
+			    [Trägermittel EUR Δ PY] > 0,
+			    MAX(
+			        [Trägermittel EUR],
+			        [Trägermittel EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: d2ebff54-d4a3-4521-b7fa-a5de7168da52
+
+	measure 'Trägermittel EUR Max Red AC' =
+			IF(
+			    [Trägermittel EUR Δ PY] < 0,
+			    MAX(
+			        [Trägermittel EUR],
+			        [Trägermittel EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 298193ab-1b97-4fab-87c4-f93b7929c644
+
+	measure 'Einnahmen EUR PY' =
+			CALCULATE(
+			    [Einnahmen EUR],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 8fa35f0d-a1dc-4ee4-8e27-2c92fa2c6972
+
+	measure 'Einnahmen EUR Δ PY' = [Einnahmen EUR] - [Einnahmen EUR PY]
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: f5634767-a0ae-4ba3-b0e1-ef8d7edd1fad
+
+	measure 'Einnahmen EUR Δ PY %' =
+			DIVIDE(
+			    [Einnahmen EUR] - [Einnahmen EUR PY],
+			    [Einnahmen EUR]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: fe47837a-52b8-40f6-b871-8f97113051d2
+
+	measure 'Einnahmen EUR Max Green PY' =
+			IF(
+			    [Einnahmen EUR Δ PY] > 0,
+			    MAX(
+			        [Einnahmen EUR],
+			        [Einnahmen EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: 44ba5d37-8fcd-4893-8be7-71df9c4c40fc
+
+	measure 'Einnahmen EUR Max Red AC' =
+			IF(
+			    [Einnahmen EUR Δ PY] < 0,
+			    MAX(
+			        [Einnahmen EUR],
+			        [Einnahmen EUR PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen\PY
+		lineageTag: e3c17d55-2c46-4656-a266-2efc5782bc5e
+
+	measure 'Einnahmen EUR Detail PY' =
+			CALCULATE(
+			    [Einnahmen EUR Detail],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Einnahmen\PY
+		lineageTag: 696a97cc-a412-4dbd-97af-552a2584f562
+
+	measure 'Einnahmen EUR Detail Δ PY' = [Einnahmen EUR Detail] - [Einnahmen EUR Detail PY]
+		formatString: #,##0.0
+		displayFolder: Einnahmen\PY
+		lineageTag: a064e41e-3454-48f7-b082-1f4b8a4917fd
+
+	measure 'Einnahmen EUR Detail Δ PY %' =
+			DIVIDE(
+			    [Einnahmen EUR Detail] - [Einnahmen EUR Detail PY],
+			    [Einnahmen EUR Detail]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Einnahmen\PY
+		lineageTag: 24a71286-72a1-4dca-80d6-191c537052e9
+
+	measure 'Einnahmen EUR Detail Max Green PY' =
+			IF(
+			    [Einnahmen EUR Detail Δ PY] > 0,
+			    MAX(
+			        [Einnahmen EUR Detail],
+			        [Einnahmen EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Einnahmen\PY
+		lineageTag: 03adf70f-9034-4bea-b92f-fcc0498e144d
+
+	measure 'Einnahmen EUR Detail Max Red AC' =
+			IF(
+			    [Einnahmen EUR Detail Δ PY] < 0,
+			    MAX(
+			        [Einnahmen EUR Detail],
+			        [Einnahmen EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Einnahmen\PY
+		lineageTag: 3346459b-1a5b-4538-a9a0-3a16d3be3ee7
+
+	measure 'Ausgaben EUR Detail PY' =
+			CALCULATE(
+			    [Ausgaben EUR Detail],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0.0
+		displayFolder: Ausgaben\PY
+		lineageTag: 14f1b94d-b2d8-45af-aa52-09cefb48236f
+
+	measure 'Ausgaben EUR Detail Δ PY' = [Ausgaben EUR Detail] - [Ausgaben EUR Detail PY]
+		formatString: #,##0.0
+		displayFolder: Ausgaben\PY
+		lineageTag: aa025da4-e2f6-4ee4-aef0-5905dc97ad9e
+
+	measure 'Ausgaben EUR Detail Δ PY %' =
+			DIVIDE(
+			    [Ausgaben EUR Detail] - [Ausgaben EUR Detail PY],
+			    [Ausgaben EUR Detail]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Ausgaben\PY
+		lineageTag: f082372d-c753-41b3-b625-10171eb25fe3
+
+	measure 'Ausgaben EUR Detail Max Green PY' =
+			IF(
+			    [Ausgaben EUR Detail Δ PY] > 0,
+			    MAX(
+			        [Ausgaben EUR Detail],
+			        [Ausgaben EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Ausgaben\PY
+		lineageTag: 3694e9d0-a276-4511-9772-35c4d8afb9b0
+
+	measure 'Ausgaben EUR Detail Max Red AC' =
+			IF(
+			    [Ausgaben EUR Detail Δ PY] < 0,
+			    MAX(
+			        [Ausgaben EUR Detail],
+			        [Ausgaben EUR Detail PY]
+			    )
+			)
+		formatString: #,##0.0
+		displayFolder: Ausgaben\PY
+		lineageTag: f3f133e5-e917-48bf-b319-bfcc3e6935fe
+
+	measure 'Professoren PY' =
+			CALCULATE(
+			    [Professoren],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0
+		displayFolder: Professoren\PY
+		lineageTag: 6de1cbf6-bfbe-4b55-b2c7-9d4e7aa67f3c
+
+	measure 'Professoren Δ PY' = [Professoren] - [Professoren PY]
+		formatString: #,##0
+		displayFolder: Professoren\PY
+		lineageTag: 617047a2-4030-45eb-bbd0-80215cdd52a6
+
+	measure 'Professoren Δ PY %' =
+			DIVIDE(
+			    [Professoren] - [Professoren PY],
+			    [Professoren]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Professoren\PY
+		lineageTag: 5dd50c14-8876-44f2-9ab3-2d1363095cac
+
+	measure 'Professoren Max Green PY' =
+			IF(
+			    [Professoren Δ PY] > 0,
+			    MAX(
+			        [Professoren],
+			        [Professoren PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Professoren\PY
+		lineageTag: 15ad5d10-e154-4c22-81b3-4eb584767e07
+
+	measure 'Professoren Max Red AC' =
+			IF(
+			    [Professoren Δ PY] < 0,
+			    MAX(
+			        [Professoren],
+			        [Professoren PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Professoren\PY
+		lineageTag: aa6e8cb4-66ee-4dd0-9d29-4eaa7f417edc
+
+	measure 'Studienanfänger PY' =
+			CALCULATE(
+			    [Studienanfänger],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: #,##0
+		displayFolder: Studienanfänger\PY
+		lineageTag: d12357aa-fd8d-458a-8783-bfabcd946257
+
+	measure 'Studienanfänger Δ PY' = [Studienanfänger] - [Studienanfänger PY]
+		formatString: #,##0
+		displayFolder: Studienanfänger\PY
+		lineageTag: 10d86ee9-9c35-4d37-9dba-8038caf64d9a
+
+	measure 'Studienanfänger Δ PY %' =
+			DIVIDE(
+			    [Studienanfänger] - [Studienanfänger PY],
+			    [Studienanfänger]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Studienanfänger\PY
+		lineageTag: 7a9ff8ec-ac54-4a45-9895-b00ab262f575
+
+	measure 'Studienanfänger Max Green PY' =
+			IF(
+			    [Studienanfänger Δ PY] > 0,
+			    MAX(
+			        [Studienanfänger],
+			        [Studienanfänger PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Studienanfänger\PY
+		lineageTag: 77b5cca2-a5f2-4a5e-b3dd-3c2c55f26eba
+
+	measure 'Studienanfänger Max Red AC' =
+			IF(
+			    [Studienanfänger Δ PY] < 0,
+			    MAX(
+			        [Studienanfänger],
+			        [Studienanfänger PY]
+			    )
+			)
+		formatString: #,##0
+		displayFolder: Studienanfänger\PY
+		lineageTag: 811eb836-6da4-456e-872c-e0e7501c39fa
+
+	measure 'Studierende Gesamt' = CALCULATE([Studierende],All(Geschlecht[Geschlecht]),ALL('Nationalität'[Nationalitaet]))
+		formatString: #,0
+		displayFolder: Studierende
+		lineageTag: 8aa62431-d6f9-4535-9ce6-7c8d4b1d9659
+
+	measure 'Studierende Alle Jahre' = CALCULATE(SUM(Studierende[Wert]),REMOVEFILTERS('Calendar'[Jahr]))
+		displayFolder: Studierende
+		lineageTag: e9ae5ecf-d51e-4791-90a4-97f9a2456e96
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Studienanfänger alle Jahr' = CALCULATE([Studienanfänger],REMOVEFILTERS('Calendar'[Jahr]))
+		displayFolder: Studienanfänger
+		lineageTag: 551ec751-a6f2-49ac-b033-e93da36168e6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// This measure is the sum of column 'Hochschulpersonal'[Wert]
+	measure Hochschulpersonal = SUM('Hochschulpersonal'[Wert])
+		formatString: 0.0
+		displayFolder: Hochschulpersonal
+		lineageTag: 1ae7131e-dfa8-4a15-9c5d-d790329975cf
+
+	measure 'Hochschulpersonal PY' =
+			CALCULATE(
+			    [Hochschulpersonal],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0
+		displayFolder: Hochschulpersonal\PY
+		lineageTag: 1005f864-58fb-47e3-be0e-3fb3ae564909
+
+	measure 'Hochschulpersonal Δ PY' = [Hochschulpersonal] - [Hochschulpersonal PY]
+		formatString: 0.0
+		displayFolder: Hochschulpersonal\PY
+		lineageTag: 40631e16-aa7c-48c3-9e59-b863e21ff078
+
+	measure 'Hochschulpersonal Δ PY %' =
+			DIVIDE(
+			    [Hochschulpersonal] - [Hochschulpersonal PY],
+			    [Hochschulpersonal]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Hochschulpersonal\PY
+		lineageTag: 21546b74-c5b6-43b1-9ab9-2de2f8c05149
+
+	measure 'Hochschulpersonal Max Green PY' =
+			IF(
+			    [Hochschulpersonal Δ PY] > 0,
+			    MAX(
+			        [Hochschulpersonal],
+			        [Hochschulpersonal PY]
+			    )
+			)
+		formatString: 0.0
+		displayFolder: Hochschulpersonal\PY
+		lineageTag: 5e8b6ca6-7aff-46ec-8d71-6b97208ef9f6
+
+	measure 'Hochschulpersonal Max Red AC' =
+			IF(
+			    [Hochschulpersonal Δ PY] < 0,
+			    MAX(
+			        [Hochschulpersonal],
+			        [Hochschulpersonal PY]
+			    )
+			)
+		formatString: 0.0
+		displayFolder: Hochschulpersonal\PY
+		lineageTag: 6af2b865-e699-4efc-9d0a-44de9f886930
+
+	/// This measure is the sum of column 'Wisspersonalfach'[Wert]
+	measure Wisspersonal = SUM('Wisspersonalfach'[Wert])
+		formatString: 0.0
+		displayFolder: Wisspersonalfach
+		lineageTag: 9b449974-534c-45e3-b8ef-6c64e2ab6185
+
+	measure 'Wisspersonal PY' =
+			CALCULATE(
+			    [Wisspersonal],
+			    SAMEPERIODLASTYEAR( Calendar[Datum] )
+			)
+		formatString: 0.0
+		displayFolder: Wisspersonalfach\PY
+		lineageTag: 75709cfb-c8bf-47db-a3c6-ea01d5c2a5c5
+
+	measure 'Wisspersonal Δ PY' = [Wisspersonal] - [Wisspersonal PY]
+		formatString: 0.0
+		displayFolder: Wisspersonalfach\PY
+		lineageTag: 6909f070-3c3a-42ff-a0f0-9c2e7481a3ee
+
+	measure 'Wisspersonal Δ PY %' =
+			DIVIDE(
+			    [Wisspersonal] - [Wisspersonal PY],
+			    [Wisspersonal]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Wisspersonalfach\PY
+		lineageTag: b36a3e37-5647-49cf-ad29-307bafa8dc98
+
+	measure 'Wisspersonal Max Green PY' =
+			IF(
+			    [Wisspersonal Δ PY] > 0,
+			    MAX(
+			        [Wisspersonal],
+			        [Wisspersonal PY]
+			    )
+			)
+		formatString: 0.0
+		displayFolder: Wisspersonalfach\PY
+		lineageTag: 02b93ead-75e6-4e15-a535-83aecb888060
+
+	measure 'Wisspersonal Max Red AC' =
+			IF(
+			    [Wisspersonal Δ PY] < 0,
+			    MAX(
+			        [Wisspersonal],
+			        [Wisspersonal PY]
+			    )
+			)
+		formatString: 0.0
+		displayFolder: Wisspersonalfach\PY
+		lineageTag: 5a37d37a-366d-4cbd-a217-e824981d2993
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Ausgaben EUR alle Jahre' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Ausgaben der Hochschulen",REMOVEFILTERS('Calendar'[Jahr]))
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: 3cb6deff-7dc6-4b60-80ed-b83934c2c94d
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Drittmitteleinnahmen EUR alle Jahre' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Drittmitteleinnahmen der Hochschulen",REMOVEFILTERS('Calendar'[Jahr]))
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: d61d26fe-bbf4-4593-94e9-603d3e498194
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Trägermittel EUR alle Jahre' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Trägermittel der Hochschulen",REMOVEFILTERS('Calendar'[Jahr]))
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: b30fea75-25c7-451d-b190-8a3c729e50c5
+
+	/// This measure is the sum of column 'Hochschulfinanzen'[Wert_EUR]
+	measure 'Einnahmen EUR alle Jahre' = CALCULATE([Wert EUR],'Hochschulfinanzen'[Kennzahl]="Einnahmen der Hochschulen (ohne Trägermittel)",REMOVEFILTERS('Calendar'[Jahr]))
+		formatString: #,##0.0
+		displayFolder: Hochschulfinanzen
+		lineageTag: 7d2268ef-3e49-4941-ae1e-898198589537
+
+
+	/// HTML hero block rendered by the htmlContent custom visual on the Home page.
+	measure Landingpage = "<div class=""landing-root""> <style> :root{ --ink:#0b1d3a; --ink-soft:#3a4a6b; --ink-mute:#6b7891; --accent:#f5b400; --accent-soft:#ffd76a; --paper:#ffffff; --paper-2:#f5f3ee; --line:rgba(11,29,58,.10); --line-strong:rgba(11,29,58,.18); --navbar-h:88px; } *{box-sizing:border-box;margin:0;padding:0} /* Full-bleed stage anchored via fixed positioning — fills the entire HTML Content visual regardless of iframe height quirks. */ .stage{ position:fixed; inset:0; background: radial-gradient(1200px 600px at 88% -10%, rgba(245,180,0,.18), transparent 60%), radial-gradient(900px 600px at -5% 110%, rgba(11,29,58,.06), transparent 55%), linear-gradient(180deg, #ffffff 0%, #faf8f2 100%); overflow:hidden; } /* Reserved empty band at the top for the user's own nav bar overlay */ .topbar-reserve{ position:absolute; top:0; left:0; right:0; height:var(--navbar-h); z-index:5; pointer-events:none; } .backdrop{ position:absolute; inset:var(--navbar-h) 0 0 0; z-index:0; opacity:.45; pointer-events:none; } .backdrop svg{width:100%;height:100%} .glyphs{position:absolute; inset:var(--navbar-h) 0 0 0; z-index:1; pointer-events:none} .glyph{position:absolute; color:rgba(11,29,58,.08)} .glyph.book { top:14%; left:3%; width:110px; transform:rotate(-8deg) } .glyph.cap { top:70%; left:4%; width:120px; transform:rotate(6deg) } .glyph.atom { top:18%; right:4%; width:150px; transform:rotate(10deg); color:rgba(11,29,58,.06) } .glyph.chart { bottom:10%; right:6%; width:150px; transform:rotate(-4deg); color:rgba(245,180,0,.28) } .glyph.sigma { top:50%; left:48%; width:80px; transform:translate(-50%,-50%) rotate(-3deg); color:rgba(11,29,58,.05) } /* Centered content. A narrow band on the right is reserved for an overlay visual. */ .content{ position:absolute; top:var(--navbar-h); left:0; bottom:0; right:32%; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; padding: 40px 72px 80px 72px; text-align:center; } /* Reserved area for the user's own Power BI visual (right side) */ .visual-reserve{ position:absolute; top:var(--navbar-h); right:0; bottom:0; width:32%; z-index:2; pointer-events:none; /* outline:1px dashed rgba(11,29,58,.2); */ } .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:18px; } .eyebrow .dot{ width:8px;height:8px;border-radius:50%;background:var(--accent); box-shadow:0 0 14px rgba(245,180,0,.55); } h1{ font-size:clamp(40px, 4.8vw, 68px); font-weight:700; line-height:1.04; letter-spacing:-.02em; margin-bottom:22px; color:var(--ink); max-width:760px; } h1 .accent{ color:var(--ink); background:linear-gradient(180deg, transparent 62%, rgba(245,180,0,.45) 62%, rgba(245,180,0,.45) 92%, transparent 92%); background-repeat:no-repeat; background-size:0% 100%; padding:0 4px; animation: hi-draw 900ms cubic-bezier(.2,.7,.2,1) 1100ms forwards; } .lede{ font-size:clamp(16px, 1.25vw, 20px); line-height:1.55; color:var(--ink-soft); max-width:680px; margin: 0 auto 36px; font-weight:400; } .meta{display:flex; flex-wrap:wrap; gap:14px 28px; margin: 0 auto 40px; justify-content:center} .meta .item{display:flex; align-items:center; gap:10px; color:var(--ink-mute); font-size:13px} .meta .item svg{width:16px; height:16px; color:var(--accent)} .kpis{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; width:100%; max-width:680px; margin: 0 auto; } .kpi{ position:relative; padding:22px 22px 20px; border-radius:14px; background:#fff; border:1px solid var(--line); box-shadow: 0 1px 0 rgba(11,29,58,.04), 0 12px 30px -18px rgba(11,29,58,.18); text-align:left; } .kpi .v{font-size:30px; font-weight:700; letter-spacing:-.02em; color:var(--ink)} .kpi .l{font-size:12px; color:var(--ink-mute); margin-top:6px; line-height:1.35} .kpi .b{position:absolute; top:14px; right:14px; width:6px; height:6px; border-radius:50%; background:var(--accent)} .footer{ position:absolute; left:72px; right:72px; bottom:24px; z-index:3; display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--ink-mute); letter-spacing:.04em; } .footer .brand{display:flex; align-items:center; gap:10px} .footer .brand b{color:var(--ink); font-weight:700; letter-spacing:.06em} .footer .sep{width:1px; height:14px; background:var(--line-strong)} /* ---------- Animations ---------- */ @keyframes hi-rise{ from{ opacity:0; transform:translateY(14px) } to { opacity:1; transform:translateY(0) } } @keyframes hi-draw{ to{ background-size:100% 100% } } @keyframes hi-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(245,180,0,.55) } 50% { box-shadow:0 0 0 6px rgba(245,180,0,0) } } @keyframes hi-drift-a{ 0%,100%{ transform:translate(0,0) rotate(var(--rot,0deg)) } 50% { transform:translate(10px,-12px) rotate(calc(var(--rot,0deg) + 2deg)) } } @keyframes hi-drift-b{ 0%,100%{ transform:translate(0,0) rotate(var(--rot,0deg)) } 50% { transform:translate(-12px,10px) rotate(calc(var(--rot,0deg) - 2deg)) } } @keyframes hi-bg-shift{ 0%,100%{ background-position: 0% 0%, 0% 0%, 0% 0% } 50% { background-position: 3% 2%, -3% -2%, 0% 0% } } /* Ambient: gentle gradient breathing on the stage */ .stage{ background-size: 130% 130%, 130% 130%, 100% 100%; animation: hi-bg-shift 22s ease-in-out infinite; } /* Entrance stagger for content blocks */ .eyebrow, .content h1, .lede, .meta, .kpis .kpi, .footer{ opacity:0; animation: hi-rise 700ms cubic-bezier(.2,.7,.2,1) forwards; } .eyebrow { animation-delay: 120ms } .content h1 { animation-delay: 260ms } .lede { animation-delay: 440ms } .meta { animation-delay: 600ms } .kpis .kpi:nth-child(1){ animation-delay: 760ms } .kpis .kpi:nth-child(2){ animation-delay: 880ms } .kpis .kpi:nth-child(3){ animation-delay: 1000ms } .footer { animation-delay: 1200ms } /* Pulsing accent dot */ .eyebrow .dot{ animation: hi-pulse 2.4s ease-in-out infinite } /* Ambient floating glyphs (preserve their rotation via --rot) */ .glyph.book { --rot:-8deg; animation: hi-drift-a 14s ease-in-out infinite } .glyph.cap { --rot: 6deg; animation: hi-drift-b 17s ease-in-out infinite } .glyph.atom { --rot:10deg; animation: hi-drift-a 19s ease-in-out infinite; animation-delay:-3s } .glyph.chart { --rot:-4deg; animation: hi-drift-b 16s ease-in-out infinite; animation-delay:-5s } @media (prefers-reduced-motion: reduce){ .eyebrow, .content h1, .lede, .meta, .kpis .kpi, .footer{ opacity:1; animation:none; } .stage, .eyebrow .dot, .glyph{ animation:none } h1 .accent{ background-size:100% 100%; animation:none } } </style> <div class=""stage""> <div class=""topbar-reserve"" aria-hidden=""true""></div> <!-- Right side kept clear so an overlay Power BI visual fits in here --> <div class=""visual-reserve"" aria-hidden=""true""></div> <div class=""backdrop"" aria-hidden=""true""> <svg viewBox=""0 0 1600 900"" preserveAspectRatio=""xMidYMid slice"" xmlns=""http://www.w3.org/2000/svg""> <defs> <pattern id=""grid"" width=""48"" height=""48"" patternUnits=""userSpaceOnUse""> <path d=""M48 0H0V48"" fill=""none"" stroke=""#0b1d3a"" stroke-width=""0.5"" stroke-opacity=""0.18""/> </pattern> <radialGradient id=""fade"" cx=""50%"" cy=""50%"" r=""60%""> <stop offset=""0%"" stop-color=""white"" stop-opacity=""1""/> <stop offset=""100%"" stop-color=""white"" stop-opacity=""0""/> </radialGradient> <mask id=""m""><rect width=""100%"" height=""100%"" fill=""url(#fade)""/></mask> </defs> <rect width=""100%"" height=""100%"" fill=""url(#grid)"" mask=""url(#m)""/> </svg> </div> <div class=""glyphs"" aria-hidden=""true""> <svg class=""glyph book"" viewBox=""0 0 64 64"" fill=""none"" stroke=""currentColor"" stroke-width=""1.8""> <path d=""M4 12c10-4 18-2 28 4 10-6 18-8 28-4v40c-10-4-18-2-28 4-10-6-18-8-28-4V12z""/> <path d=""M32 16v40""/> </svg> <svg class=""glyph cap"" viewBox=""0 0 64 64"" fill=""none"" stroke=""currentColor"" stroke-width=""1.8""> <path d=""M2 24L32 12l30 12-30 12L2 24z""/> <path d=""M14 30v12c0 4 8 8 18 8s18-4 18-8V30""/> <path d=""M58 26v14""/> </svg> <svg class=""glyph atom"" viewBox=""0 0 64 64"" fill=""none"" stroke=""currentColor"" stroke-width=""1.6""> <circle cx=""32"" cy=""32"" r=""4"" fill=""currentColor""/> <ellipse cx=""32"" cy=""32"" rx=""28"" ry=""11""/> <ellipse cx=""32"" cy=""32"" rx=""28"" ry=""11"" transform=""rotate(60 32 32)""/> <ellipse cx=""32"" cy=""32"" rx=""28"" ry=""11"" transform=""rotate(120 32 32)""/> </svg> <svg class=""glyph chart"" viewBox=""0 0 64 64"" fill=""none"" stroke=""currentColor"" stroke-width=""2""> <path d=""M6 56h52""/> <rect x=""12"" y=""34"" width=""8"" height=""20""/> <rect x=""26"" y=""22"" width=""8"" height=""32""/> <rect x=""40"" y=""10"" width=""8"" height=""44""/> </svg> <svg class=""glyph sigma"" viewBox=""0 0 64 64"" fill=""none"" stroke=""currentColor"" stroke-width=""2.4"" stroke-linecap=""round"" stroke-linejoin=""round""> <path d=""M14 10h36L26 32l24 22H12""/> </svg> </div> <div class=""content""> <div class=""eyebrow""><span class=""dot""></span> Hochschul-Insights</div> <h1>Daten, die Hochschulen <span class=""accent"">bewegen.</span></h1> <p class=""lede""> Studierende, Studienanfänger und Absolventen — bundesweit, vergleichbar, aktuell. Auf Basis offizieller GENESIS-Statistiken, aufbereitet in Microsoft Fabric und visualisiert nach IBCS-Standards. </p> <div class=""meta""> <div class=""item""> <svg viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2""><path d=""M3 7h18M3 12h18M3 17h12""/></svg> Quelle: Statistisches Bundesamt (GENESIS-Online) </div> <div class=""item""> <svg viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2""><circle cx=""12"" cy=""12"" r=""9""/><path d=""M12 7v5l3 2""/></svg> Zeitraum 2019 – 2024 </div> <div class=""item""> <svg viewBox=""0 0 24 24"" fill=""none"" stroke=""currentColor"" stroke-width=""2""><path d=""M4 4h16v6H4zM4 14h16v6H4z""/></svg> Microsoft Fabric · Direct Lake </div> </div> <div class=""kpis""> <div class=""kpi""> <span class=""b""></span> <div class=""v"">16</div> <div class=""l"">GENESIS-Tabellen<br/>integriert</div> </div> <div class=""kpi""> <span class=""b""></span> <div class=""v"">6</div> <div class=""l"">Berichtsjahre<br/>2019 – 2024</div> </div> <div class=""kpi""> <span class=""b""></span> <div class=""v"">16</div> <div class=""l"">Bundesländer<br/>vollständig</div> </div> </div> </div> <div class=""footer""> <div class=""brand""> <span>Daten: Statistisches Bundesamt</span> <span class=""sep""></span> <span>Visualisierung nach IBCS&reg;</span> <span class=""sep""></span> <span>Powered by Microsoft Fabric</span> </div> <div class=""brand""> <b>HOCHSCHUL&nbsp;INSIGHTS</b> </div> </div> </div> </div>"
+		displayFolder: _Landingpage
+		lineageTag: a1b2c3d4-9001-4000-8000-000000009001
+
+	column Value
+		isHidden
+		lineageTag: f4a82b3b-fbc3-4b86-88b3-7e9fb2c615bf
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition Measure = calculated
+		mode: import
+		source = {0}
+

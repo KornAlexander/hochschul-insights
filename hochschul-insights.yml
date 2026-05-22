@@ -1,0 +1,61 @@
+# Microsoft Fabric Jumpstart registration template
+# Copy this file to: src/fabric_jumpstart/fabric_jumpstart/jumpstarts/community/hochschul-insights.yml
+# in a fork of microsoft/fabric-jumpstart, fill `id` with the next free positive int,
+# and open a PR. `repo_ref` MUST stay pinned to a tag (never a branch).
+
+id: 0  # TODO: replace with next-available positive int from existing registry
+logical_id: hochschul-insights
+name: Hochschul-Insights (German Higher Education)
+description: >
+  End-to-end analytics on German higher-education data from DESTATIS GENESIS-Online:
+  students, staff, third-party funding, expenses, income — 10 fact + 6 dimension
+  tables, Direct Lake semantic model, 8-page IBCS-styled Power BI report with an
+  Azure Map of all 422 Hochschulen, plus a Data Agent for natural-language Q&A.
+  Bundled snapshot included for zero-config deploy; live refresh optional via a
+  free DESTATIS GENESIS API token.
+date_added: 05/21/2026
+workload_tags:
+  - Data Engineering
+  - Power BI
+scenario_tags:
+  - Analytics
+  - Public Sector
+  - Education
+type: Demo
+source:
+  repo_url: https://github.com/KornAlexander/hochschul-insights
+  repo_ref: v1.0.0
+  workspace_path: workspace/hochschul-insights
+  files_source_path: data/snapshot/
+  files_destination_lakehouse: hochschul_insights_lh
+  files_destination_path: snapshot/
+items_in_scope:
+  - Lakehouse
+  - Notebook
+  - DataPipeline
+  - SemanticModel
+  - Report
+  - DataAgent
+entry_point: 00_start_here.Notebook
+owner_email: alkorn@microsoft.com
+mermaid_diagram: |
+  graph LR
+    SNAP[bundled snapshot CSVs]:::file --> LH[hochschul_insights_lh]:::lh
+    GENESIS[DESTATIS GENESIS API]:::api -.live mode.-> LDR[hochschul_insights_genesis_loader]:::nb
+    WIKI[Wikidata SPARQL]:::api -.live mode.-> DIM[hochschul_insights_genesis_dimensions]:::nb
+    LDR --> LH
+    DIM --> LH
+    SS[00_start_here]:::nb --> LDR
+    SS --> DIM
+    SS --> LSS[hochschul_insights_load_snapshot]:::nb
+    LSS --> LH
+    LH --> SM[HochschulInsights semantic model]:::sm
+    SM --> RPT[HochschulInsights report]:::rpt
+    SM --> AGT[hochschul_stats_agent data agent]:::agt
+    classDef file fill:#fff4ce,stroke:#8a6d3b;
+    classDef lh   fill:#cfe2ff,stroke:#0d6efd;
+    classDef nb   fill:#d1e7dd,stroke:#198754;
+    classDef sm   fill:#e2d5f5,stroke:#6f42c1;
+    classDef rpt  fill:#f8d7da,stroke:#dc3545;
+    classDef agt  fill:#ffe5cc,stroke:#fd7e14;
+    classDef api  fill:#e9ecef,stroke:#6c757d,stroke-dasharray:5 5;

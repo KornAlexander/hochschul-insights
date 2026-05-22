@@ -1,0 +1,34 @@
+{
+  "snapshot_date": "2026-05-21",
+  "data_source": "DESTATIS GENESIS-Online (https://www-genesis.destatis.de/)",
+  "data_licence": "Datenlizenz Deutschland 2.0 (https://www.govdata.de/dl-de/by-2-0)",
+  "genesis_tables": [
+    "21311-0001",
+    "21311-0011",
+    "21321-0001",
+    "21341-0001",
+    "21341-0011",
+    "21351-0001",
+    "21351-0002",
+    "21351-0003"
+  ],
+  "row_counts": {
+    "Ausgaben": 4032,
+    "Bundesland": 16,
+    "Drittmittel": 4032,
+    "Einnahmen": 4032,
+    "Faechergruppe": 12,
+    "Geschlecht": 3,
+    "Hochschulart": 7,
+    "Hochschulen": 936,
+    "Hochschulfinanzen": 256,
+    "Hochschulpersonal": 250,
+    "Nationalitaet": 3,
+    "Professoren": 120,
+    "StudienanfaengerHochschule": 50544,
+    "Studierende": 22464,
+    "StudierendeBund": 24,
+    "WissPersonalFach": 930
+  },
+  "table_count": 16
+}

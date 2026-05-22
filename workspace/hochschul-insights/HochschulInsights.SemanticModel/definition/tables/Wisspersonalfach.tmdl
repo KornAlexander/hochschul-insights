@@ -1,0 +1,57 @@
+table Wisspersonalfach
+	lineageTag: 5e61ed37-9181-48ca-8250-664b5871683b
+	sourceLineageTag: [Genesis].[wisspersonalfach]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 3b573d1f-e4a2-4ddc-8e45-472ca4db048b
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LehrForschungsbereich
+		dataType: string
+		lineageTag: 39bfe14e-4f4d-472c-ba49-6ba3662b610f
+		sourceLineageTag: LehrForschungsbereich
+		summarizeBy: none
+		sourceColumn: LehrForschungsbereich
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: b95f90b2-50c1-45d5-9233-dd2ece9771d8
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		isHidden
+		lineageTag: 6d2cbee5-dbae-487c-b4ae-748e30de37a8
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition wisspersonalfach = entity
+		mode: directLake
+		source
+			entityName: wisspersonalfach
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

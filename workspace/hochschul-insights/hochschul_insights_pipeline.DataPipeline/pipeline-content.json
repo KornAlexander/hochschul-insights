@@ -1,0 +1,304 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Load_Hochschulfinanzen",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Hochschulfinanzen",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Ausgaben",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Ausgaben",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Einnahmen",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Einnahmen",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Drittmittel",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Drittmittel",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Hochschulpersonal",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Hochschulpersonal",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_WissPersonalFach",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "WissPersonalFach",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Professoren",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Professoren",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_StudierendeBund",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "StudierendeBund",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_Studierende",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "Studierende",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Load_StudienanfaengerHochschule",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.02:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__LOADER_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__",
+          "parameters": {
+            "tables_to_load": {
+              "value": "StudienanfaengerHochschule",
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "name": "Build_Dimensions",
+        "type": "TridentNotebook",
+        "dependsOn": [
+          {
+            "activity": "Load_Hochschulfinanzen",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Ausgaben",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Einnahmen",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Drittmittel",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Hochschulpersonal",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_WissPersonalFach",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Professoren",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_StudierendeBund",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_Studierende",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Load_StudienanfaengerHochschule",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.01:00:00",
+          "retry": 1,
+          "retryIntervalInSeconds": 60,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "typeProperties": {
+          "notebookId": "__DIMS_NB_ID__",
+          "workspaceId": "__WORKSPACE_ID__"
+        }
+      }
+    ],
+    "description": "Loads 10 GENESIS fact tables in parallel, then builds Hochschule + attribute dimensions."
+  }
+}

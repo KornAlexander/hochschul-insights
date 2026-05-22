@@ -1,0 +1,1497 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "2022 Turningpoint Anzahl Studenten geht nach unten - IU wächst weiter - Einnahmen steigen",
+  "name": "343184c4c21afb988237",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "498ca7a35abeeb92",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "8e34f1b5c047fb5101a1",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "Hochschulen"
+                }
+              },
+              "Property": "Parent_University"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "498ca7a35abeeb92": {
+        "visualContainers": {
+          "1a6caaebaad89c7e8061": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "105add10394b4869f931",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2c5345c89eddacbde2d0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b72793d553e56eb9e6cd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e56de2c0668852225523",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a98ef917cb78a4e79123",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ebc095dd59333d7927d9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR alle Jahre"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "3d9a93fe067754571aba": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8a6e2a804526c4e73a88",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "18ce481980c089f922ca",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f660348e6d8b1f09c774",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulen"
+                        }
+                      },
+                      "Property": "Parent_University"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ibcsMultiTierBarECA4F65BFFB141198B7A6391AFFC946A",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "403d07e553974b15ffce": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "69a8689e41e7a68dd84a": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "7ead0f2336a091e0b692": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7787a89afe8a00ccd8c4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f249e7016aee719b583d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a29c2663406c36626f13",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "91f51207af0415886cc9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b06164b31692a8eeab5e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studienanfänger"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "374a609f23df8b54502a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studienanfänger PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "42af13fac09fc97b05ce",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Studienanfänger"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6743322e07730d21a5b2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studienanfänger alle Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Studienanfänger"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "969859777aaa916b85b5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "870aba7c63f18e1677a1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ee808ee4458b3fdeb799",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a8c3d29c0c59ead89ea8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9cede2988cb781466c4a": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "b14c8bfe34609a10dc20": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0e7fe6bccfeb73ac171d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "29fee318697b9f141e42",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3043eb3dc0c99e35bce3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "345c040eba8405ed7d27",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR PY"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b6fb202e7b7625d736c6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "acdcc7f81a605db3e37b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1adb47796e6a89bc8524",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "192d110156d9c0d37151",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1aa7c4d7c0b9a730c07a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Ausgaben EUR alle Jahre"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "b9faea0cf8746b806c09": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "be851b1bb28c22262ecd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Drittmitteleinnahmen EUR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "46c48f695cc0f3b1d891",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Drittmitteleinnahmen EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6c8e8150c59a51645fae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1143a955f58cb68d4a23",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Drittmitteleinnahmen EUR alle Jahre"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "bf9958ebaf7b282b4adc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "070cf80b53e6dba20880",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "c",
+                                "Entity": "Calendar",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "c"
+                                            }
+                                          },
+                                          "Property": "Jahr"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2022L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "cff6e21a60f253729d2a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "be45fa6878c7c18413f9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Trägermittel EUR"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6bf0fe5f947f4b635921",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Trägermittel EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cd18c340103249ecd077",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ed9f9241bfb51ceb08e5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Trägermittel EUR alle Jahre"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulfinanzen"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d09cd64fdc0ad8f604ca": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bc407f8f866020547d14",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "293e8bdbf625abcbdd5b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "512fc2469179a07cec65",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fc9b4e076a47a6423d11",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Einnahmen EUR PY"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Bundesland"
+                        }
+                      },
+                      "Property": "Bundesland"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "studienanfanger-card-1536ad": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a4bd53bff36391eb9837",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2107246c5312c767d129",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "07dc30801049f6c9b286",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende Alle Jahre"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dfd728507151a9f5e57c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Studierende"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Studierende"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "studierende-studienanfanger-im-lineChart-1777b5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3aef30520ecfaace9ff0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7b6e51b0ee7a1490428b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cf3162fb5b73b88dfc98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studienanfänger"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calendar"
+                        }
+                      },
+                      "Property": "Jahr"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "top10-hochschulen-nach-studier-barChart-e0d4b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e30f0ceb14e8e0f4c3a1",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "h",
+                                  "Entity": "Hochschulen",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "m",
+                                  "Entity": "Measure",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "h"
+                                      }
+                                    },
+                                    "Property": "Parent_University"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "m"
+                                        }
+                                      },
+                                      "Property": "Studierende"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 50
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "h",
+                        "Entity": "Hochschulen",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "h"
+                                    }
+                                  },
+                                  "Property": "Parent_University"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulen"
+                        }
+                      },
+                      "Property": "Parent_University"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "33ca04087e2cc83495bb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulen"
+                        }
+                      },
+                      "Property": "Hochschule"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a35e1b99b75f0fcddd15",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ed71bc75dcad515f4e6f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% of Studierende weiblich Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ae3f74cb149f6508b625",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% of Studierende International Δ PY %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cdb50d2e1b8bfc8966a0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende PY"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "24b9d1a83b74744a57b3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Studierende"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Hochschulen"
+                        }
+                      },
+                      "Property": "Parent_University"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

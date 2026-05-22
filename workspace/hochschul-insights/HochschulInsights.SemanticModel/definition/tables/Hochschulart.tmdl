@@ -1,0 +1,20 @@
+table Hochschulart
+	lineageTag: 058d8e7f-1efa-4582-9644-1fcb34528265
+	sourceLineageTag: [Genesis].[hochschulart]
+
+	column Hochschulart
+		dataType: string
+		lineageTag: 05f3cf89-ef41-4cb1-957c-695e328fa613
+		sourceLineageTag: Hochschulart
+		summarizeBy: none
+		sourceColumn: Hochschulart
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hochschulart = entity
+		mode: directLake
+		source
+			entityName: hochschulart
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

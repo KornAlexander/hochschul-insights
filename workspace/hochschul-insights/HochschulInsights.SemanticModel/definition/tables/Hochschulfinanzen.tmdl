@@ -1,0 +1,61 @@
+table Hochschulfinanzen
+	isHidden
+	lineageTag: 506889e3-3b0e-46f3-b605-078061e11d0e
+	sourceLineageTag: [Genesis].[hochschulfinanzen]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 8a9d9842-848a-47e7-aef9-11d82ce10251
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bundesland
+		dataType: string
+		isHidden
+		lineageTag: 33e23c62-56a1-4acb-af0f-ea7feb664fd8
+		sourceLineageTag: Bundesland
+		summarizeBy: none
+		sourceColumn: Bundesland
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kennzahl
+		dataType: string
+		isHidden
+		lineageTag: d3e9758f-16ec-4b73-a46b-d8f740d34ce4
+		sourceLineageTag: Kennzahl
+		summarizeBy: none
+		sourceColumn: Kennzahl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Wert_EUR
+		dataType: double
+		isHidden
+		lineageTag: 32fc253d-4e5f-417d-9c62-d548e63b1719
+		sourceLineageTag: Wert_EUR
+		summarizeBy: sum
+		sourceColumn: Wert_EUR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition hochschulfinanzen = entity
+		mode: directLake
+		source
+			entityName: hochschulfinanzen
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

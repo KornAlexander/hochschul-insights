@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "hochschul_insights_lh",
+    "description": "Hochschul-Insights lakehouse (schemas enabled)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e012a50f-cbcc-45d2-8628-a20162f3a46e"
+  }
+}

@@ -1,0 +1,75 @@
+table Drittmittel
+	isHidden
+	lineageTag: 7628036f-894b-41da-afb0-54a7893eac42
+	sourceLineageTag: [Genesis].[drittmittel]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 721634af-1160-40be-a03f-acb9a6bc4cb1
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bundesland
+		dataType: string
+		isHidden
+		lineageTag: 67d147ac-c74d-4bcc-b98b-35850a8f22d5
+		sourceLineageTag: Bundesland
+		summarizeBy: none
+		sourceColumn: Bundesland
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hochschulart
+		dataType: string
+		isHidden
+		lineageTag: 9251e4e8-6c86-4888-bcf2-fffaf7a8cb5b
+		sourceLineageTag: Hochschulart
+		summarizeBy: none
+		sourceColumn: Hochschulart
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faechergruppe
+		dataType: string
+		isHidden
+		lineageTag: 087e8edb-844f-488d-9813-a7b23b3b9a07
+		sourceLineageTag: Faechergruppe
+		summarizeBy: none
+		sourceColumn: Faechergruppe
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Wert_EUR
+		dataType: double
+		isHidden
+		lineageTag: 44f1531f-24d4-4bad-bf24-05dcc4af53ed
+		sourceLineageTag: Wert_EUR
+		summarizeBy: sum
+		sourceColumn: Wert_EUR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition drittmittel = entity
+		mode: directLake
+		source
+			entityName: drittmittel
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

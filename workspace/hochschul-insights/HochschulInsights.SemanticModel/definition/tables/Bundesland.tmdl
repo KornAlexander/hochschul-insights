@@ -1,0 +1,23 @@
+table Bundesland
+	lineageTag: 6b528ff5-185d-49aa-aed5-38c975a4feeb
+	sourceLineageTag: [Genesis].[bundesland]
+
+	column Bundesland
+		dataType: string
+		lineageTag: 0e85dde8-b64c-4608-9a45-30d74643f349
+		sourceLineageTag: Bundesland
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: Bundesland
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bundesland = entity
+		mode: directLake
+		source
+			entityName: bundesland
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

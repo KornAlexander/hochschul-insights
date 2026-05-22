@@ -1,0 +1,57 @@
+table Hochschulpersonal
+	lineageTag: 304c683d-0197-4022-acc7-f0a624b68b2b
+	sourceLineageTag: [Genesis].[hochschulpersonal]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 42a427a9-1889-4eed-bf37-445a5108d59b
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Beschaeftigungsverhaeltnis
+		dataType: string
+		lineageTag: 92821d8b-cf64-465e-b651-59f494caa8da
+		sourceLineageTag: Beschaeftigungsverhaeltnis
+		summarizeBy: none
+		sourceColumn: Beschaeftigungsverhaeltnis
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: 47ee1453-e096-480d-9797-d5a6ce8004c5
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		isHidden
+		lineageTag: 6985f7b1-6307-4334-85ee-8817f3d4a366
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition hochschulpersonal = entity
+		mode: directLake
+		source
+			entityName: hochschulpersonal
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

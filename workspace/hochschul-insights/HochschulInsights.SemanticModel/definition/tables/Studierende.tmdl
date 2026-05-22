@@ -1,0 +1,95 @@
+table Studierende
+	isHidden
+	lineageTag: b8343c5a-e064-4558-b5a7-61813efde6a7
+	sourceLineageTag: [Genesis].[studierende]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 40f69d10-a473-4e3f-ab38-a1a2489d5d74
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wintersemester
+		dataType: string
+		isHidden
+		lineageTag: 4af1a70d-25da-4000-92c8-be7da455c0c2
+		sourceLineageTag: Wintersemester
+		summarizeBy: none
+		sourceColumn: Wintersemester
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hochschule_Code
+		dataType: string
+		isHidden
+		lineageTag: da4a20bb-21af-4b85-bae8-bd57f73fea29
+		sourceLineageTag: Hochschule_Code
+		summarizeBy: none
+		sourceColumn: Hochschule_Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nationalitaet
+		dataType: string
+		isHidden
+		lineageTag: 23a48d9a-cdc2-4a67-945a-a0e0bb48a843
+		sourceLineageTag: Nationalitaet
+		summarizeBy: none
+		sourceColumn: Nationalitaet
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: 5533a944-f40a-471a-b756-b3c40d9fdb20
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		isHidden
+		lineageTag: c183c070-d55c-47c2-9ddf-39cdce506272
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Bundesland
+		dataType: string
+		isHidden
+		lineageTag: a1b2c3d4-0011-4000-8000-000000000011
+		sourceLineageTag: Bundesland
+		summarizeBy: none
+		sourceColumn: Bundesland
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition studierende = entity
+		mode: directLake
+		source
+			entityName: studierende
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+

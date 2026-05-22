@@ -1,0 +1,69 @@
+table Studierendebund
+	lineageTag: f989f9dd-58a0-4e4e-9bf3-75acc8080f84
+	sourceLineageTag: [Genesis].[studierendebund]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 7df5be83-5efb-425c-bd1f-82fd9c8fee33
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wintersemester
+		dataType: string
+		isHidden
+		lineageTag: cffc8efe-3371-415b-ba6f-985653023559
+		sourceLineageTag: Wintersemester
+		summarizeBy: none
+		sourceColumn: Wintersemester
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nationalitaet
+		dataType: string
+		isHidden
+		lineageTag: dc7170c2-9855-413a-85da-84a4f3fec4c0
+		sourceLineageTag: Nationalitaet
+		summarizeBy: none
+		sourceColumn: Nationalitaet
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: 4ded40ea-2cb1-40fc-a68c-ae6dfe7a9962
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		lineageTag: cb0d94e9-06cc-48d6-ac43-bdf7322a55e5
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition studierendebund = entity
+		mode: directLake
+		source
+			entityName: studierendebund
+			schemaName: Genesis
+			expressionSource: 'DirectLake - WebinarLakehouse'
+
