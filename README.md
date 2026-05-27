@@ -59,29 +59,47 @@ Delete the `hochschul-insights` workspace folder. Every deployed item is inside 
 
 ## Data lineage
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture-dark.svg">
+  <img alt="Hochschul-Insights architecture: external sources (DESTATIS GENESIS API, bundled snapshot CSVs, Wikidata SPARQL) feed loader notebooks orchestrated from 00_start_here, writing into hochschul_insights_lh, served by the HochschulInsights Direct Lake semantic model to a Power BI report and data agent." src="docs/architecture-light.svg">
+</picture>
+
+<details>
+<summary>Mermaid source (regenerate at <a href="https://jumpstart.fabric.microsoft.com/tools/diagram-generator">jumpstart.fabric.microsoft.com/tools/diagram-generator</a>)</summary>
+
 ```mermaid
 graph LR
-  SNAP[bundled snapshot CSVs<br/>data/snapshot/]:::file --> LH[hochschul_insights_lh<br/>Lakehouse]:::lh
-  GENESIS[DESTATIS GENESIS API]:::api -.live mode.-> LDR[hochschul_insights_genesis_loader]:::nb
-  WIKI[Wikidata SPARQL]:::api -.live mode.-> DIM[hochschul_insights_genesis_dimensions]:::nb
-  LDR --> LH
-  DIM --> LH
-  SS[00_start_here]:::nb --> LDR
-  SS --> DIM
-  SS --> LSS[hochschul_insights_load_snapshot]:::nb
-  LSS --> LH
-  LH --> SM[HochschulInsights<br/>Semantic Model]:::sm
-  SM --> RPT[HochschulInsights<br/>Report]:::rpt
-  SM --> AGT[hochschul_stats_agent<br/>Data Agent]:::agt
-
-  classDef file fill:#fff4ce,stroke:#8a6d3b;
-  classDef lh   fill:#cfe2ff,stroke:#0d6efd;
-  classDef nb   fill:#d1e7dd,stroke:#198754;
-  classDef sm   fill:#e2d5f5,stroke:#6f42c1;
-  classDef rpt  fill:#f8d7da,stroke:#dc3545;
-  classDef agt  fill:#ffe5cc,stroke:#fd7e14;
-  classDef api  fill:#e9ecef,stroke:#6c757d,stroke-dasharray:5 5;
+    GEN[DESTATIS GENESIS REST API]:::U2601
+    CSV[bundled snapshot CSVs]:::U1F5C4
+    WIKI[Wikidata SPARQL]:::U2601
+    subgraph Fabric:::Workspace
+        START[00_start_here]:::Notebook
+        PIPE[hochschul_insights_pipeline]:::DataPipeline
+        LOADER[hochschul_insights_genesis_loader]:::Notebook
+        SNAP[hochschul_insights_load_snapshot]:::Notebook
+        DIMS[hochschul_insights_genesis_dimensions]:::Notebook
+        LH[hochschul_insights_lh]:::Lakehouse
+        SM[HochschulInsights model]:::SemanticModel
+        RPT[HochschulInsights report]:::Report
+        AGENT[hochschul_stats_agent]:::DataAgent
+        direction LR
+    end
+    GEN -.-> LOADER
+    CSV -.-> SNAP
+    WIKI -.-> DIMS
+    START ==> PIPE
+    START ==> SNAP
+    PIPE ==> LOADER
+    PIPE ==> DIMS
+    LOADER --> LH
+    SNAP --> LH
+    DIMS --> LH
+    LH --> SM
+    SM --> RPT
+    SM --> AGENT
 ```
+
+</details>
 
 ## Snapshot details
 
