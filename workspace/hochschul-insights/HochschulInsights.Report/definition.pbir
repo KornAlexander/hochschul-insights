@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
   "version": "4.0",
   "datasetReference": {
-    "byConnection": {
-      "connectionString": "Data Source=powerbi://api.powerbi.com/v1.0/myorg/__WORKSPACE_NAME__;initial catalog=Hochschule;integrated security=ClaimsToken;semanticmodelid=__SEMANTICMODEL_ID__"
+    "byPath": {
+      "path": "../HochschulInsights.SemanticModel"
     }
   }
 }

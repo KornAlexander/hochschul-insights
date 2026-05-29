@@ -1,0 +1,30 @@
+# fabric-cicd parameterization for the Hochschul-Insights jumpstart.
+# Replaces deployment placeholders with dynamic references that fabric-cicd
+# resolves to the IDs of the items it deploys into the target workspace.
+# Item type + name are case-sensitive and must match the items in this folder.
+find_replace:
+  # Target workspace id (semantic model Direct Lake expression, pipeline
+  # activities, data agent datasources, notebook lakehouse attachments).
+  - find_value: "__WORKSPACE_ID__"
+    replace_value:
+      _ALL_: "$workspace.$id"
+
+  # Deployed lakehouse id (semantic model Direct Lake expression, data agent
+  # lakehouse datasource, notebook default/known lakehouse attachments).
+  - find_value: "__LAKEHOUSE_ID__"
+    replace_value:
+      _ALL_: "$items.Lakehouse.hochschul_insights_lh.$id"
+
+  # Deployed semantic model id (data agent semantic-model datasource).
+  - find_value: "__SEMANTICMODEL_ID__"
+    replace_value:
+      _ALL_: "$items.SemanticModel.HochschulInsights.$id"
+
+  # Pipeline notebook activity references.
+  - find_value: "__LOADER_NB_ID__"
+    replace_value:
+      _ALL_: "$items.Notebook.hochschul_insights_genesis_loader.$id"
+
+  - find_value: "__DIMS_NB_ID__"
+    replace_value:
+      _ALL_: "$items.Notebook.hochschul_insights_genesis_dimensions.$id"

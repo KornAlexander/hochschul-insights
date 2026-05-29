@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "e012a50f-cbcc-45d2-8628-a20162f3a46e",
-# META       "default_lakehouse_name": "WebinarLakehouse",
-# META       "default_lakehouse_workspace_id": "00000000-0000-0000-0000-000000000000",
+# META       "default_lakehouse": "__LAKEHOUSE_ID__",
+# META       "default_lakehouse_name": "hochschul_insights_lh",
+# META       "default_lakehouse_workspace_id": "__WORKSPACE_ID__",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "e012a50f-cbcc-45d2-8628-a20162f3a46e"
+# META           "id": "__LAKEHOUSE_ID__"
 # META         }
 # META       ]
 # META     }
