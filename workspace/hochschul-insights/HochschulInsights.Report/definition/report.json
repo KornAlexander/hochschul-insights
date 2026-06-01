@@ -126,17 +126,6 @@
       ]
     },
     {
-      "name": "HierarchySlicer17_OrgStore",
-      "type": "OrganizationalStoreCustomVisual",
-      "items": [
-        {
-          "name": "resources/HierarchySlicer17_OrgStore.pbiviz.json",
-          "path": "2/38ae3bcd-9579-4fd4-adda-b42e1495d55a/ResourcePackage/BlobIdV2-e74b0986-d5b3-4c73-9851-42261f7fae88-vFcs3oXe7ASE6wzgWCT3Fp-U3InFj8G9Ci.json",
-          "type": "CustomVisualMetadata"
-        }
-      ]
-    },
-    {
       "name": "KPIbyMoonStory4B6DA6B3EBDC447C853CF146E50FCD57",
       "type": "CustomVisual",
       "items": [
