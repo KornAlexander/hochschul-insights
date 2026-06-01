@@ -77,5 +77,29 @@ else:
     print("No token -> loading bundled snapshot from /Files/snapshot/")
     nu.notebook.run("hochschul_insights_load_snapshot")
 
+# === Bind & refresh the Direct Lake semantic model ===
+# A freshly deployed Direct Lake model has no owner credential bound to its
+# OneLake datasource, so its first refresh fails with "... access was denied".
+# Taking over the model binds the current user's identity to the source, then
+# we reframe it so the HochschulInsights report goes live immediately.
+import requests
+
+_ws = nu.runtime.context["currentWorkspaceId"]
+_hdr = {"Authorization": f"Bearer {nu.credentials.getToken('pbi')}"}
+_base = "https://api.powerbi.com/v1.0/myorg"
+try:
+    _dsets = requests.get(f"{_base}/groups/{_ws}/datasets", headers=_hdr).json().get("value", [])
+    _model = next((d for d in _dsets if d["name"] == "HochschulInsights"), None)
+    if _model:
+        _id = _model["id"]
+        requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/Default.TakeOver", headers=_hdr)
+        _r = requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/refreshes",
+                           headers=_hdr, json={"type": "full"})
+        print(f"Semantic model bound + refresh triggered (HTTP {_r.status_code}).")
+    else:
+        print("HochschulInsights semantic model not found - skipping auto-refresh.")
+except Exception as _e:
+    print(f"Auto bind/refresh skipped ({_e}). Open the model and refresh manually if needed.")
+
 print("\nDone. Open the HochschulInsights report in this workspace.")
 
