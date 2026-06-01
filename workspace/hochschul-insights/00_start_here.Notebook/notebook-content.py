@@ -34,11 +34,14 @@ import notebookutils as nu
 
 if GENESIS_TOKEN.strip():
     print("Token provided -> running live GENESIS load (10-15 min)")
-    nu.notebook.run("hochschul_insights_genesis_loader", arguments={"GENESIS_TOKEN": GENESIS_TOKEN})
-    nu.notebook.run("hochschul_insights_genesis_dimensions")
+    nu.notebook.run("hochschul_insights_genesis_loader",
+                    arguments={"GENESIS_TOKEN": GENESIS_TOKEN, "useRootDefaultLakehouse": True})
+    nu.notebook.run("hochschul_insights_genesis_dimensions",
+                    arguments={"useRootDefaultLakehouse": True})
 else:
     print("No token -> loading bundled snapshot from /Files/snapshot/")
-    nu.notebook.run("hochschul_insights_load_snapshot")
+    nu.notebook.run("hochschul_insights_load_snapshot",
+                    arguments={"useRootDefaultLakehouse": True})
 
 print("\nDone. Open the HochschulInsights report in this workspace.")
 
