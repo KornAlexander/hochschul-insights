@@ -66,36 +66,76 @@ GENESIS_TOKEN = ""
 
 import notebookutils as nu
 
+# The child loaders can run well past the 90s default child-notebook timeout
+# (cold Spark session, large snapshot, GENESIS API). Give them a generous budget
+# so the run never aborts before the model bind/refresh step below.
+_RUN_TIMEOUT = 3600
+
 if GENESIS_TOKEN.strip():
     # Live mode: fetch fresh figures from DESTATIS, then build dimension tables.
     print("Token provided -> running live GENESIS load (10-15 min)")
     nu.notebook.run("hochschul_insights_genesis_loader",
-                    arguments={"GENESIS_TOKEN": GENESIS_TOKEN})
-    nu.notebook.run("hochschul_insights_genesis_dimensions")
+                    arguments={"GENESIS_TOKEN": GENESIS_TOKEN},
+                    timeout_seconds=_RUN_TIMEOUT)
+    nu.notebook.run("hochschul_insights_genesis_dimensions",
+                    timeout_seconds=_RUN_TIMEOUT)
 else:
     # Snapshot mode: load the bundled CSVs shipped in the Lakehouse Files area.
     print("No token -> loading bundled snapshot from /Files/snapshot/")
-    nu.notebook.run("hochschul_insights_load_snapshot")
+    nu.notebook.run("hochschul_insights_load_snapshot",
+                    timeout_seconds=_RUN_TIMEOUT)
 
 # === Bind & refresh the Direct Lake semantic model ===
-# A freshly deployed Direct Lake model has no owner credential bound to its
-# OneLake datasource, so its first refresh fails with "... access was denied".
-# Taking over the model binds the current user's identity to the source, then
-# we reframe it so the HochschulInsights report goes live immediately.
+# A freshly deployed Direct Lake-on-OneLake model has no owner credential bound to
+# its OneLake datasource. Taking over the model binds the current user's identity,
+# but the owner's OneLake read permission on the brand-new lakehouse can take a few
+# minutes to propagate -- until it does, the reframe fails with "... access was
+# denied". So we take over once, then retry the full refresh with a wait loop until
+# it completes, which makes the HochschulInsights report go live automatically.
+import time
 import requests
 
 _ws = nu.runtime.context["currentWorkspaceId"]
-_hdr = {"Authorization": f"Bearer {nu.credentials.getToken('pbi')}"}
 _base = "https://api.powerbi.com/v1.0/myorg"
+
+
+def _hdr():
+    return {"Authorization": f"Bearer {nu.credentials.getToken('pbi')}"}
+
+
+def _refresh_once(model_id):
+    """Trigger one full refresh and wait for it to finish. Returns the final status."""
+    requests.post(f"{_base}/groups/{_ws}/datasets/{model_id}/refreshes",
+                  headers=_hdr(), json={"type": "full"})
+    for _ in range(40):  # up to ~5 min per attempt
+        time.sleep(8)
+        _v = requests.get(
+            f"{_base}/groups/{_ws}/datasets/{model_id}/refreshes?$top=1",
+            headers=_hdr()).json().get("value", [])
+        if _v and _v[0]["status"] not in ("Unknown", "InProgress"):
+            return _v[0]["status"]
+    return "InProgress"
+
+
 try:
-    _dsets = requests.get(f"{_base}/groups/{_ws}/datasets", headers=_hdr).json().get("value", [])
+    _dsets = requests.get(f"{_base}/groups/{_ws}/datasets", headers=_hdr()).json().get("value", [])
     _model = next((d for d in _dsets if d["name"] == "HochschulInsights"), None)
     if _model:
         _id = _model["id"]
-        requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/Default.TakeOver", headers=_hdr)
-        _r = requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/refreshes",
-                           headers=_hdr, json={"type": "full"})
-        print(f"Semantic model bound + refresh triggered (HTTP {_r.status_code}).")
+        requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/Default.TakeOver", headers=_hdr())
+        print("Semantic model taken over. Reframing Direct Lake data...")
+        _status = None
+        for _attempt in range(1, 7):  # retry to outlast OneLake permission propagation
+            _status = _refresh_once(_id)
+            print(f"  refresh attempt {_attempt}: {_status}")
+            if _status == "Completed":
+                break
+            time.sleep(30)
+        if _status == "Completed":
+            print("Semantic model refreshed - the report is now live.")
+        else:
+            print(f"Refresh did not complete (last status: {_status}). "
+                  "Wait a minute and refresh the HochschulInsights model manually.")
     else:
         print("HochschulInsights semantic model not found - skipping auto-refresh.")
 except Exception as _e:
