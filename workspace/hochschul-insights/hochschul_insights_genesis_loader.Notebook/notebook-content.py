@@ -125,7 +125,20 @@ JOBS_URL   = f"{BASE}/catalogue/jobs"
 HEADERS    = {"username": GENESIS_TOKEN}
 
 # Ensure target schema exists (Lakehouse must be schema-enabled).
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {LAKEHOUSE_SCHEMA}")
+# A fresh jumpstart deploy attaches 'hochschul_insights_lh' as the default
+# Lakehouse automatically; if it is missing, fail with a clear, actionable
+# message instead of the cryptic "No default context found" error.
+try:
+    spark.sql(f"CREATE SCHEMA IF NOT EXISTS {LAKEHOUSE_SCHEMA}")
+except Exception as _lh_err:
+    raise RuntimeError(
+        "No default Lakehouse is attached to this notebook, so Spark SQL cannot "
+        f"create/resolve the '{LAKEHOUSE_SCHEMA}' schema. Attach 'hochschul_insights_lh' "
+        "as the default Lakehouse (Explorer pane -> Lakehouses -> Add -> "
+        "hochschul_insights_lh -> set as default) and re-run. A fresh jumpstart deploy "
+        "attaches it automatically; this usually means it was manually removed. "
+        f"Original error: {_lh_err}"
+    )
 print(f"Will load {len(TABLES)} tables into schema '{LAKEHOUSE_SCHEMA}'.")
 
 

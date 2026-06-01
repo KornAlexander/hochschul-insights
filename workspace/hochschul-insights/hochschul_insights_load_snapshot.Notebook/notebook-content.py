@@ -42,7 +42,24 @@ from pyspark.sql.types import (
 )
 
 spark = SparkSession.builder.getOrCreate()
-spark.sql("CREATE SCHEMA IF NOT EXISTS Genesis")
+
+# --- Lakehouse context guard -------------------------------------------------
+# Partial-namespace Spark SQL (CREATE SCHEMA / saveAsTable) needs a default
+# Lakehouse attached. A fresh Hochschul-Insights jumpstart deploy attaches
+# 'hochschul_insights_lh' automatically. If it is missing, fail with a clear,
+# actionable message instead of the cryptic "No default context found" error.
+try:
+    spark.sql("CREATE SCHEMA IF NOT EXISTS Genesis")
+except Exception as _lh_err:
+    raise RuntimeError(
+        "No default Lakehouse is attached to this notebook, so Spark SQL cannot "
+        "create/resolve the 'Genesis' schema. Attach 'hochschul_insights_lh' as the "
+        "default Lakehouse (Explorer pane -> Lakehouses -> Add -> hochschul_insights_lh "
+        "-> set as default) and re-run. A fresh jumpstart deploy attaches it "
+        "automatically; this usually means it was manually removed. "
+        f"Original error: {_lh_err}"
+    )
+# ----------------------------------------------------------------------------
 
 SNAP_DIR = "/lakehouse/default/Files/snapshot"
 
