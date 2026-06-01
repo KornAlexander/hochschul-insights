@@ -1,0 +1,19 @@
+# fabric-cicd parameterization for the Hochschul-Insights jumpstart.
+#
+# The repo ships notebooks, a Direct Lake semantic model and a data pipeline that all
+# reference the lakehouse and workspace via the literal placeholders __LAKEHOUSE_ID__
+# and __WORKSPACE_ID__. fabric-cicd resolves those to the real GUIDs of the deployed
+# items at publish time, so every item binds to the freshly created lakehouse.
+find_replace:
+  # Lakehouse GUID — used in notebook default_lakehouse bindings, the semantic model's
+  # Direct Lake OneLake path and the pipeline. Resolved to the deployed lakehouse's id.
+  - find_value: __LAKEHOUSE_ID__
+    replace_value:
+      _ALL_: "$items.Lakehouse.hochschul_insights_lh.$id" # deployed lakehouse GUID (dynamic)
+    is_regex: "false"
+
+  # Workspace GUID — used in notebook bindings, the Direct Lake path and the pipeline.
+  - find_value: __WORKSPACE_ID__
+    replace_value:
+      _ALL_: "$workspace.$id" # target workspace GUID (dynamic)
+    is_regex: "false"

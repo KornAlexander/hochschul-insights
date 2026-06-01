@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "e012a50f-cbcc-45d2-8628-a20162f3a46e",
+# META       "default_lakehouse": "__LAKEHOUSE_ID__",
 # META       "default_lakehouse_name": "hochschul_insights_lh",
 # META       "default_lakehouse_workspace_id": "__WORKSPACE_ID__",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "e012a50f-cbcc-45d2-8628-a20162f3a46e"
+# META           "id": "__LAKEHOUSE_ID__"
 # META         }
 # META       ]
 # META     }
@@ -50,10 +50,10 @@
 # 
 # ### Prerequisites
 # 
-# - The **`hochschul_insights_lh`** Lakehouse must be attached as this notebook's
-#   **default** Lakehouse (it is, if you deployed via the jumpstart installer). The child
-#   notebooks inherit it via `useRootDefaultLakehouse=True`, so the attachment only needs
-#   to exist here.
+# - The **`hochschul_insights_lh`** Lakehouse is attached as the default Lakehouse on this
+#   notebook *and* on each child notebook automatically by the jumpstart installer (the
+#   deploy-time `parameter.yml` resolves the lakehouse/workspace GUIDs). No manual setup
+#   is required.
 # 
 # When the run finishes, open the **HochschulInsights** report in this workspace.
 
@@ -70,14 +70,12 @@ if GENESIS_TOKEN.strip():
     # Live mode: fetch fresh figures from DESTATIS, then build dimension tables.
     print("Token provided -> running live GENESIS load (10-15 min)")
     nu.notebook.run("hochschul_insights_genesis_loader",
-                    arguments={"GENESIS_TOKEN": GENESIS_TOKEN, "useRootDefaultLakehouse": True})
-    nu.notebook.run("hochschul_insights_genesis_dimensions",
-                    arguments={"useRootDefaultLakehouse": True})
+                    arguments={"GENESIS_TOKEN": GENESIS_TOKEN})
+    nu.notebook.run("hochschul_insights_genesis_dimensions")
 else:
     # Snapshot mode: load the bundled CSVs shipped in the Lakehouse Files area.
     print("No token -> loading bundled snapshot from /Files/snapshot/")
-    nu.notebook.run("hochschul_insights_load_snapshot",
-                    arguments={"useRootDefaultLakehouse": True})
+    nu.notebook.run("hochschul_insights_load_snapshot")
 
 print("\nDone. Open the HochschulInsights report in this workspace.")
 
