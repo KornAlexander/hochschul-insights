@@ -107,7 +107,7 @@ def _refresh_once(model_id):
     """Trigger one full refresh and wait for it to finish. Returns the final status."""
     requests.post(f"{_base}/groups/{_ws}/datasets/{model_id}/refreshes",
                   headers=_hdr(), json={"type": "full"})
-    for _ in range(40):  # up to ~5 min per attempt
+    for _ in range(60):  # up to ~8 min per attempt
         time.sleep(8)
         _v = requests.get(
             f"{_base}/groups/{_ws}/datasets/{model_id}/refreshes?$top=1",
@@ -122,15 +122,22 @@ try:
     _model = next((d for d in _dsets if d["name"] == "HochschulInsights"), None)
     if _model:
         _id = _model["id"]
-        requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/Default.TakeOver", headers=_hdr())
         print("Semantic model taken over. Reframing Direct Lake data...")
         _status = None
-        for _attempt in range(1, 7):  # retry to outlast OneLake permission propagation
+        for _attempt in range(1, 11):  # retry to outlast OneLake permission propagation (~12 min)
+            # Re-assert ownership each round: on a brand-new deploy the first
+            # TakeOver can land before the model is fully provisioned, so the
+            # owner credential may not stick. Re-issuing it is cheap and harmless.
+            requests.post(f"{_base}/groups/{_ws}/datasets/{_id}/Default.TakeOver", headers=_hdr())
             _status = _refresh_once(_id)
             print(f"  refresh attempt {_attempt}: {_status}")
             if _status == "Completed":
                 break
-            time.sleep(30)
+            # The owner's OneLake read grant on the brand-new lakehouse can take
+            # several minutes to propagate; until it does the reframe fails with
+            # "... access was denied". Back off progressively (45s -> 90s) so the
+            # loop spans ~12 min before giving up.
+            time.sleep(min(45 + (_attempt - 1) * 15, 90))
         if _status == "Completed":
             print("Semantic model refreshed - the report is now live.")
         else:
