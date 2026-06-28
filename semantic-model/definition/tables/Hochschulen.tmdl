@@ -1,0 +1,134 @@
+table Hochschulen
+	lineageTag: 23f2aa97-33a0-4996-b6c0-a0b894249b5b
+	sourceLineageTag: [Genesis].[hochschulen]
+
+	measure 'Avg Lat' = AVERAGE(Hochschulen[Lat])
+		lineageTag: 763d5610-2e60-48b3-a27a-e2648bd0e98f
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Lon' = AVERAGE(Hochschulen[Lon])
+		lineageTag: f1e64835-a12f-4f28-8bb2-5f80cc23a756
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Hochschule_Code
+		dataType: string
+		isHidden
+		lineageTag: c42bdc2c-c9eb-471d-a21f-d80dc9e2dfd6
+		sourceLineageTag: Hochschule_Code
+		summarizeBy: none
+		sourceColumn: Hochschule_Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hochschule
+		dataType: string
+		lineageTag: 393a0242-3ec8-4d67-bb41-a0f253027373
+		sourceLineageTag: Hochschule
+		summarizeBy: none
+		sourceColumn: Hochschule
+
+		annotation SummarizationSetBy = Automatic
+
+	column QID
+		dataType: string
+		lineageTag: 95a60dfa-5e53-478b-afce-b6f867be0519
+		sourceLineageTag: QID
+		summarizeBy: none
+		sourceColumn: QID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Source
+		dataType: string
+		lineageTag: 22ae640f-e9aa-4e78-b024-76be8ca68f25
+		sourceLineageTag: Source
+		summarizeBy: none
+		sourceColumn: Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wiki_Name
+		dataType: string
+		lineageTag: 0c8f13a6-69ec-4b26-af4c-9213f1765efa
+		sourceLineageTag: Wiki_Name
+		summarizeBy: none
+		sourceColumn: Wiki_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lat
+		dataType: double
+		lineageTag: dcef9ef8-eecb-4c14-bfcb-1569ed34aae9
+		sourceLineageTag: Lat
+		summarizeBy: sum
+		sourceColumn: Lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Lon
+		dataType: double
+		lineageTag: 7397a79e-1c93-4dc0-9f74-7c9bd0fbea31
+		sourceLineageTag: Lon
+		summarizeBy: sum
+		sourceColumn: Lon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Bundesland
+		dataType: string
+		lineageTag: c42bab2d-a698-4901-8951-6a3dff26c028
+		sourceLineageTag: Bundesland
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: Bundesland
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gruendungsjahr
+		dataType: string
+		lineageTag: da3a9329-e8e2-4de4-9e7f-5407a969a70f
+		sourceLineageTag: Gruendungsjahr
+		summarizeBy: none
+		sourceColumn: Gruendungsjahr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stadt
+		dataType: string
+		lineageTag: 4ed841da-f854-4a1c-b1d2-31bb655ad619
+		sourceLineageTag: Stadt
+		summarizeBy: none
+		sourceColumn: Stadt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Parent_University
+		dataType: string
+		lineageTag: 7e4d6b1c-5a09-4e7a-9f1b-2d8c3a4e5f60
+		sourceLineageTag: Parent_University
+		summarizeBy: none
+		sourceColumn: Parent_University
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hochschulen = entity
+		mode: directLake
+		source
+			entityName: hochschulen
+			schemaName: genesis
+			expressionSource: 'DirectLake - DemoLakehouse'
+

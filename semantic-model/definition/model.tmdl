@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - DemoLakehouse"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DirectLakeOnOneLakeInWeb","WebModelingEdit","RemoteModeling","TMDLView_Desktop"]
+
+annotation __TEdtr = 1
+
+ref table Hochschulpersonal
+ref table Drittmittel
+ref table Studierende
+ref table Hochschulfinanzen
+ref table Studierendebund
+ref table Wisspersonalfach
+ref table Einnahmen
+ref table Ausgaben
+ref table Hochschulen
+ref table Professoren
+ref table Studienanfänger
+ref table Bundesland
+ref table Hochschulart
+ref table Fächergruppe
+ref table Nationalität
+ref table Geschlecht
+ref table Measure
+ref table Calendar
+

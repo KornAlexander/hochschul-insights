@@ -1,0 +1,76 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "4",
+  "name": "Bookmark4d7e324c549ed4ea2b34",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "ReportSection7f9e000f503488eb480c",
+    "sections": {
+      "ReportSection7f9e000f503488eb480c": {
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "ca7008303ddd05006d30": {
+            "isHidden": true
+          },
+          "575948261795b5d6b4d3": {
+            "isHidden": true
+          },
+          "656c36152bce3eb80e74": {
+            "isHidden": true
+          },
+          "77a50e21b75c3070696b": {
+            "isHidden": true
+          },
+          "540afcb25b438dc48a61": {
+            "isHidden": true
+          },
+          "2f2b148cc47d043851b8": {
+            "isHidden": true
+          },
+          "0d32368462bd98b229d5": {
+            "isHidden": true
+          },
+          "ddadc9ca46391999b057": {
+            "isHidden": false
+          },
+          "1993884e3b2850d66580": {
+            "isHidden": true
+          },
+          "2683426ce6580b3c8dea": {
+            "isHidden": true
+          },
+          "f6716a8039d63d297228": {
+            "isHidden": true
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+table Geschlecht
+	lineageTag: 2756b46a-c803-4269-b981-551c0b39b1bd
+	sourceLineageTag: [Genesis].[geschlecht]
+
+	column Geschlecht
+		dataType: string
+		lineageTag: b29e8c80-811a-4e06-92bb-8d25af9696f7
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		annotation SummarizationSetBy = Automatic
+
+	partition geschlecht = entity
+		mode: directLake
+		source
+			entityName: geschlecht
+			schemaName: genesis
+			expressionSource: 'DirectLake - DemoLakehouse'
+

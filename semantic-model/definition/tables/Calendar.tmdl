@@ -1,0 +1,25 @@
+table Calendar
+	lineageTag: d901f3e1-4d7d-44bf-a795-6b5f91e0c21d
+	dataCategory: Time
+
+	column Datum
+		isKey
+		lineageTag: c58b88f5-b522-4b9d-a4f8-156c493f30c1
+		sourceColumn: [Date]
+
+		annotation TabularEditor_MarkAsDateKey = 1
+
+	column Jahr
+		lineageTag: f0322d61-b31f-45a4-818e-30b600b91962
+		isNameInferred
+		sourceColumn: [Jahr]
+
+	partition Measure = calculated
+		mode: import
+		source =
+				SELECTCOLUMNS(
+				    GENERATESERIES(2016, 2024, 1),
+				    "Date", DATE([Value], 1, 1),
+				    "Jahr", [Value]
+				)
+

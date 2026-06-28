@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+  "version": "4.0",
+  "datasetReference": {
+    "byConnection": {
+      "connectionString": "Data Source=powerbi://api.powerbi.com/v1.0/myorg/Webinar;initial catalog=Hochschule;integrated security=ClaimsToken;semanticmodelid=f4b298e8-fd43-4de7-a2d5-40fbe141be98"
+    }
+  }
+}

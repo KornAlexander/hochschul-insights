@@ -1,0 +1,61 @@
+table Professoren
+	isHidden
+	lineageTag: 734e1ab8-848d-486b-8e35-59362023008a
+	sourceLineageTag: [Genesis].[professoren]
+
+	column Jahr
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		lineageTag: 8428c17e-e13a-4411-a6aa-17be55da4d2a
+		sourceLineageTag: Jahr
+		summarizeBy: none
+		sourceColumn: Jahr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faechergruppe
+		dataType: string
+		isHidden
+		lineageTag: 8b3827b4-8038-4e2c-8899-2c743f9bdb92
+		sourceLineageTag: Faechergruppe
+		summarizeBy: none
+		sourceColumn: Faechergruppe
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Geschlecht
+		dataType: string
+		isHidden
+		lineageTag: 719cf722-b260-4933-9509-770225aa4bda
+		sourceLineageTag: Geschlecht
+		summarizeBy: none
+		sourceColumn: Geschlecht
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wert
+		dataType: double
+		isHidden
+		lineageTag: c3c68d93-f224-4202-9fdc-e52ac41605bd
+		sourceLineageTag: Wert
+		summarizeBy: sum
+		sourceColumn: Wert
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition professoren = entity
+		mode: directLake
+		source
+			entityName: professoren
+			schemaName: genesis
+			expressionSource: 'DirectLake - DemoLakehouse'
+

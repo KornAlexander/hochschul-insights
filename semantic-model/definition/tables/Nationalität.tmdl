@@ -1,0 +1,20 @@
+table Nationalität
+	lineageTag: 80e025c4-1dc3-4acb-b661-3ac42b6bc18d
+	sourceLineageTag: [Genesis].[nationalitaet]
+
+	column Nationalitaet
+		dataType: string
+		lineageTag: 45c25964-f6a1-4ff4-98db-3b0af0a0da79
+		sourceLineageTag: Nationalitaet
+		summarizeBy: none
+		sourceColumn: Nationalitaet
+
+		annotation SummarizationSetBy = Automatic
+
+	partition nationalitaet = entity
+		mode: directLake
+		source
+			entityName: nationalitaet
+			schemaName: genesis
+			expressionSource: 'DirectLake - DemoLakehouse'
+

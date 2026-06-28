@@ -1,0 +1,20 @@
+table Fächergruppe
+	lineageTag: 4490d500-c245-4c9b-a2f3-339aad6d5d80
+	sourceLineageTag: [Genesis].[faechergruppe]
+
+	column Faechergruppe
+		dataType: string
+		lineageTag: c19dd780-eb1f-4e59-aba0-c246dbf4831a
+		sourceLineageTag: Faechergruppe
+		summarizeBy: none
+		sourceColumn: Faechergruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	partition faechergruppe = entity
+		mode: directLake
+		source
+			entityName: faechergruppe
+			schemaName: genesis
+			expressionSource: 'DirectLake - DemoLakehouse'
+

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "498ca7a35abeeb92",
+  "displayName": "Übersicht",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'hochschul_bg4.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "hochschul_bg46047791583452574.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "b6fb202e7b7625d736c6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "b9faea0cf8746b806c09",
+      "type": "NoFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "cff6e21a60f253729d2a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "2c5345c89eddacbde2d0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "969859777aaa916b85b5",
+      "target": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "969859777aaa916b85b5",
+      "target": "91f51207af0415886cc9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "969859777aaa916b85b5",
+      "target": "studienanfãnger-card-1536ad",
+      "type": "DataFilter"
+    },
+    {
+      "source": "969859777aaa916b85b5",
+      "target": "top10-hochschulen-nach-studier-barChart-e0d4b8",
+      "type": "DataFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "969859777aaa916b85b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "d09cd64fdc0ad8f604ca",
+      "type": "NoFilter"
+    },
+    {
+      "source": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "target": "b14c8bfe34609a10dc20",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ead0f2336a091e0b692",
+      "target": "969859777aaa916b85b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "969859777aaa916b85b5",
+      "target": "7ead0f2336a091e0b692",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ead0f2336a091e0b692",
+      "target": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf9958ebaf7b282b4adc",
+      "target": "studierende-studienanfãnger-im-lineChart-1777b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf9958ebaf7b282b4adc",
+      "target": "969859777aaa916b85b5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "bf9958ebaf7b282b4adc",
+      "target": "7ead0f2336a091e0b692",
+      "type": "NoFilter"
+    }
+  ]
+}
